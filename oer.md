@@ -19,15 +19,13 @@ link:       https://cdn.jsdelivr.net/gh/soda-collections-objects-data-literacy/O
 
 language: de
 
-
-
 -->
 
 # SODa Einführung in die Umgebungsverwaltung mit Python und Pip
 
 Hier gibt es noch nichts zu sehen. Bitte gehen sie weiter.
 
-
+<!-- 
 <br><br>
 
 <div style="overflow:auto">
@@ -37,4 +35,4 @@ Hier gibt es noch nichts zu sehen. Bitte gehen sie weiter.
   <div style="float:right;width:48%">
     <img style="float:left;width:80%" src="res/funding_BMFTR.jpg" alt="">
   </div>
-</div>
+</div> -->
