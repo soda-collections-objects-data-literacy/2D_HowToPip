@@ -1,4 +1,4 @@
-# 2D_HowToPip
+# Einführung in Python und Pip Umgebungen
 Dieses Repository enthält den Quelltext für eine LiaScript-basierte OER zur Erstellung von Python und Pip Umgebungen.
 
 Die OER selbst kann über den LiaScript-Renderer angezeigt werden:
