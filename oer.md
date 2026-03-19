@@ -25,7 +25,6 @@ language: de
 
 Hier gibt es noch nichts zu sehen. Bitte gehen sie weiter.
 
-<!-- 
 <br><br>
 
 <div style="overflow:auto">
@@ -35,4 +34,4 @@ Hier gibt es noch nichts zu sehen. Bitte gehen sie weiter.
   <div style="float:right;width:48%">
     <img style="float:left;width:80%" src="res/funding_BMFTR.jpg" alt="">
   </div>
-</div> -->
+</div>
