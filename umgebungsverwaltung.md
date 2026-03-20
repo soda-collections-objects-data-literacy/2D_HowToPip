@@ -92,13 +92,16 @@ Erklären was das CWD ist, wie funktionieren relative und absolute Pfade
 ### Quizfrage
 Irgendwas in die Richtung: Was kommt raus wenn man einen Befehl eingibt
 
-## Python Installieren
+## Python 
+Kontext erklären: was ist Python? 
+
+### Installation
 Betriebssystemabhängig
 
 ### Quizfrage
 Irgendein Python Befehl eingeben: Was kommt raus?
 
-## Virtuelle Umgebung Einrichten
+## Umgebungsvirtualisierung
 
 Was sind Umgebungen, warum virtuell? 
 
@@ -109,15 +112,26 @@ Diagramme aus den Folien einfügen
 3. Versionsabhängigkeiten 
 4. Paketabhängigkeiten
 5. Versionskonflikte
+
+### Venv verwenven
 6. Venv to the rescue
 7. Multi-Env, Multi-Python
+
+### Alternativen
 8. Vergleichspunkte: Anaconda, Docker
+Conda 
 
 ### Quiz
 
-## Pip Packages Installieren
+## Paketmanagement mit Pip
+Was ist Paketmanagement?
+
 
 ## Open Source Projekte Finden
+### GitHub 
+Erklären was GitHub ist, wie das ganze mit Git zusammenhängt. Readme enthält meistens 
+### HuggingFace
+
 
 ## CheatSheet
 Große Tabelle mit allen Commands
