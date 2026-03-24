@@ -648,7 +648,6 @@ Installieren, je nach Betriebssystem
 2. Pyenv installieren: `brew install pyenv`
 3. Im terminal: `pyenv install <VERSION>`, z.B. `pyenv install 3.11`
 </details>
-
 <details>
 <summary>Linux</summary>
 Installation über Systemweiten Paketmanager, z.B. `apt-get install python3.11`
