@@ -691,8 +691,11 @@ SODa – Sammlungen, Objekte, Datenkompetenzen: https://sammlungen.io/
 ---
 
 Version: 0.0.1
+
 Datum: 2026-03-17
+
 Repository: https://github.com/soda-collections-objects-data-literacy/2D_HowToPip
+
 License: CC-BY 4.0
 
 ---
@@ -701,8 +704,6 @@ License: CC-BY 4.0
 weitere Tutorials und Open Educational Resources: https://sammlungen.io/kb
 
 ---
-
-gefördert durch:
 
 ![Finanziert von der Europäischen Union](res/FinanziertVonDerEU.jpg)
 
