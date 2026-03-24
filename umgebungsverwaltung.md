@@ -310,7 +310,7 @@ Unter Linux nutzen wir einfach wieder den Paketmanager, um eine spezifische Vers
 3. Nach der Installation können Sie diese spezifische Version in der Kommandozeile über den Befehl `python3.9` (statt nur `python3`) gezielt aufrufen.
 </details>
 
-#### Weiterführende Python-Einführungen
+### Weiterführende Python-Einführungen
 
 Dieses Tutorial konzentriert sich gezielt auf die Umgebungsverwaltung und das Ausführen fremder Open-Source-Projekte. Wenn Sie auf den Geschmack gekommen sind und die Programmiersprache Python selbst von Grund auf lernen möchten, um eigene Skripte für Ihre Sammlungsdaten zu schreiben, empfehlen wir folgende kostenfreie Ressourcen:
 
