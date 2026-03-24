@@ -636,7 +636,6 @@ Starten, je nach Betriebssystem
 Python
 ---------
 Installieren, je nach Betriebssystem 
-
 <details>
 <summary>Windows</summary>
 1. Python install manager von [Python.org](https://www.python.org/) herunterladen. 
@@ -652,6 +651,7 @@ Installieren, je nach Betriebssystem
 <summary>Linux</summary>
 Installation über Systemweiten Paketmanager, z.B. `apt-get install python3.11`
 </details>
+
 
 Venv
 ---------
