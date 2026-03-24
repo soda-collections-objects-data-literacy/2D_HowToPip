@@ -190,7 +190,7 @@ Lassen Sie uns kurz überprüfen, ob die wichtigsten Konzepte zur Navigation sit
 [(X)] Alle Dateien und Unterordner in meinem aktuellen Arbeitsverzeichnis (CWD) werden als Liste angezeigt.
 [( )] Mein Computer sucht im Internet nach Updates.
 
-#### Weiterführende Kommandozeilen-Einführungen
+### Weiterführende Kommandozeilen-Einführungen
 
 In diesem Tutorial haben wir nur an der absoluten Oberfläche der Kommandozeile gekratzt (Navigation mit `cd` und Auflisten mit `ls`). Wenn Sie lernen möchten, wie Sie zehntausende Dateien in Sekundenbruchteilen umbenennen, durchsuchen oder automatisierte Abläufe starten, finden Sie hier exzellente, speziell für Forschende und Geisteswissenschaftler:innen aufbereitete Einstiegshilfen:
 
