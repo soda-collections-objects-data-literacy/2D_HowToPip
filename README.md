@@ -2,7 +2,7 @@
 Dieses Repository enthält den Quelltext für eine LiaScript-basierte OER zur Erstellung von Python und Pip Umgebungen.
 
 Die OER selbst kann über den LiaScript-Renderer angezeigt werden:
-[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?)
+[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/soda-collections-objects-data-literacy/2D_HowToPip/refs/heads/main/umgebungsverwaltung.md)
 
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
