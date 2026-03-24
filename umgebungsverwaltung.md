@@ -35,9 +35,9 @@ Am Ende der Einheit sind Nutzer:innen in der Lage, mit wenig Aufwand Open Source
 
 Lernziele: 
 - [Umgang mit der Kommandozeile](#3)
-- [Installation einer Python Umgebung](#5)
-- [Umgebungsverwaltung mit Venv](#6)
-- [Paketmanagement mit Pip](#7)
+- [Installation einer Python Umgebung](#13)
+- [Umgebungsverwaltung mit Venv](#19)
+- [Paketmanagement mit Pip](#27)
 
 Das Tutorial ist angelehnt an zwei SODa Präsenzworkshops: ["Python, GitHub, Pip & Co"](https://sammlungen.io/events/soda-workshop-python-github-pip-co) sowie die einführenden Teile des Workshops zur [Objekterkennung](https://sammlungen.io/events/workshop-automatisierte-objekterkennung-der-sammlungsarbeit). 
 Entsprechend der Zielsetzung des SODa Projekts stellen Sammlungsverantwortliche und mit Sammlungsdaten Forschende die primäre Zielgruppe dar, grundsätzlich kann das Tutorial aber natürlich von allen genutzt werden.
