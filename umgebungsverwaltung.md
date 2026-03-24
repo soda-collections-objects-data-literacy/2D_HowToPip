@@ -635,6 +635,7 @@ Starten, je nach Betriebssystem
 
 Python
 ---------
+
 Installieren, je nach Betriebssystem 
 <details>
 <summary>Windows</summary>
