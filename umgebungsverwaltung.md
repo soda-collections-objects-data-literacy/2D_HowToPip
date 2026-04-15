@@ -29,7 +29,7 @@ comment: Dieses Dokument ist einer Einführung zur Umgebungsverwaltung und zum P
 
 Ob in der Digitalisierung, Objektforschung oder Texterfassung -- Open Source Software kann teure kommerzielle Angebote häufig ersetzen. 
 Dabei sind die Voraussetzungen die nötig sind, um solche Open Source Algorithmen auf lokalen Systemen lauffähig zu machen häufig geringer als erwartet. 
-Dieses Tutorial soll die nötigen Grundlagen vermitteln, um das eigene System für die Ausführung solcher Algorithmen vorzubereiten. 
+Dieses Tutorial soll die nötigen Grundlagen vermitteln, um das eigene System für die Ausführung der Algorithmen vorzubereiten. 
 Nacheinander werden dazu der Umgang mit der Kommandozeile, die Installation einer lokalen Python Umgebung, die Umgebungsverwaltung und -Isolation mit venv, sowie das Paketmanagement mit Pip behandelt. 
 Am Ende der Einheit sind Nutzer:innen in der Lage, mit wenig Aufwand Open Source Projekte von Plattformen wie GitHub oder Pip lokal auszuführen. 
 
@@ -41,27 +41,35 @@ Lernziele:
 
 Das Tutorial ist angelehnt an zwei SODa Präsenzworkshops: ["Python, GitHub, Pip & Co"](https://sammlungen.io/events/soda-workshop-python-github-pip-co) sowie die einführenden Teile des Workshops zur [Objekterkennung](https://sammlungen.io/events/workshop-automatisierte-objekterkennung-der-sammlungsarbeit). 
 Entsprechend der Zielsetzung des SODa Projekts stellen Sammlungsverantwortliche und mit Sammlungsdaten Forschende die primäre Zielgruppe dar, grundsätzlich kann das Tutorial aber natürlich von allen genutzt werden.
+
 Der Quelltext ist auf GitHub [veröffentlicht](https://github.com/soda-collections-objects-data-literacy/2D_HowToPip) und frei nachnutzbar. Über Feedback und Verbesserungsvorschläge, z.B. per [Mail](mailto:mathias.zinnen@fau.de), freuen wir uns sehr!
+Insbesondere sind wir dankbar für Rückmeldungen falls die hier vorgestellten Anleitungen mit Ihrer Systemkonfiguration nicht funktionieren. Wir helfen gerne weiter und passen die OER dann dementsprechend an!
 
 ## Einführung
 
 Warum sollte ich mir überhaupt die Mühe machen, mich in die Kommandozeile und Python Umgebungsverwaltung einzuarbeiten? Es gibt doch onlinedienste wie google colab, verschiedene Jupyterhubs oder den [SODa Semantic Coworking Space](https://sammlungen.io/semantic-coworking-space)? 
 Es kommt darauf an, was man erreichen möchte. 
-Um ein erstes Verständnis für Machine-Learning und Data Science Inhalte zu entwickeln, reicht es tatsächlich häufig aus, remote gehostete Notebooks durchzuarbeiten. 
-Ein gutes Beispiel dafür sind etwa die Online Workshops unserer Kolleg:innenen von [WiNoDa](https://winoda.de/), die ihre tollen Video Kurse auf [YouTube](https://www.youtube.com/@WiNoDaKnowledgeLab) häufig mit vorbereiteten Google Colab Notebooks unterstützen, so dass die Teilnehmer:innen die Lerninhalte direkt interaktiv ausprobieren können. 
-Um Python auszuprobieren und programmatisch auf eigene WissKI Instanzen zugreifen zu können, kann etwa der momentan noch im Aufbau befindliche SODa Semantic Coworking Space verwendet werden.
-Hier verfolgen wir allerdings bewusst einen anderen Ansatz: Wer lernt, grundlegend mit der Kommandozeile umzugehen, sich mit der Umgebungsverwaltung und dem Paketmanagement grundsätzlich vertraut macht und vor allem, lernt das Ganze auf dem **eigenen** System einzurichten, besitzt volle Autonomie über die eigenen Daten und digitalen Fähigkeiten. 
-Keine spontane Serviceabschaltung, Änderung des Geschäftsmodells oder politische Instabilität betrifft diejenigen, die Software mit offenem Quellcode auf ihren eigenen Systemen installiert haben. 
-Am Ende ist es natürlich eine Abwägung: Manchmal ist es einfach nicht möglich, Zeit und personelle Ressourcen aufzubringen. Wir möchten aber dennoch dafür werben und unterstützen mit dem SODa Helpdesk gerne bei Problemen in der Umsetzung.  
-Aufbauend auf diesem Tutorial planen wir weitere Vertiefungsmodule, in denen Beispielprojekte lokal installiert und genutzt werden, etwa zur Objekterkennung mit YOLO, Textverarbeitung mit SpaCy, oder Texterkennung mit EasyOCR. 
 
+Um ein erstes Verständnis für Machine-Learning und Data Science Inhalte zu entwickeln, reicht es tatsächlich häufig aus, online verfügbare Notebooks durchzuarbeiten, ohne den notwendigen Code auf dem eigenen System ausführbar machen zu müssen. 
+Ein gutes Beispiel dafür sind etwa die Online Workshops unserer Kolleg:innenen von [WiNoDa](https://winoda.de/), die ihre tollen Kurse und Workshop auf [YouTube](https://www.youtube.com/@WiNoDaKnowledgeLab) und häufig mit vorbereiteten Google Colab Notebooks unterstützen, so dass die Teilnehmer:innen die Lerninhalte direkt interaktiv ausprobieren können. 
+Daneben kann zum Beispiel auch der momentan noch im Aufbau befindliche SODa Semantic Coworking Space verwendet werden, um Python auszuprobieren und programmatisch auf eigene WissKI Instanzen zugreifen zu können.
+
+Hier verfolgen wir bewusst einen anderen Ansatz: Wer lernt, grundlegend mit der Kommandozeile umzugehen, sich mit der Umgebungsverwaltung und dem Paketmanagement grundsätzlich vertraut macht und vor allem lernt, das Ganze auf dem **eigenen** System einzurichten, gewinnt volle Autonomie über die eigenen Daten und digitalen Fähigkeiten. 
+Diejenigen, die gelernt haben Quelloffene Software auf ihren eigenen System zu installieren, brauchen keine spontane Serviceabschaltung, keine Änderung des Geschäftsmodells oder veränderte politische Rahmenbedingungen zu fürchten.
+
+Klar ist aber auch: Manchmal ist es einfach nicht möglich, die dafür nötige Zeit und personelle Ressourcen aufzubringen. Wir möchten aber dennoch dafür werben, sich wenn irgend möglich die Mühe zu machen und unterstützen mit dem SODa Helpdesk gerne bei Problemen in der Umsetzung.  
+
+Aufbauend auf diesem Tutorial planen wir weitere Vertiefungsmodule, in denen Beispielprojekte lokal installiert und genutzt werden, etwa zur Objekterkennung mit YOLO, Textverarbeitung mit SpaCy, oder Texterkennung mit EasyOCR. 
 Sobald es konkret wird unterscheiden sich die nötigen Schritte je nach Betriebssystem. Einfach das Kontextmenü für das jeweilige Betriebssystem ausklappen. 
 Die pro Einheit erlernten Befehle sind jeweils noch einmal im Kapitel [TLDR](#35) kurz zusammengefasst. 
 
 ## Kommandozeile
 
+![Symbolbild einer Kommandozeilenausgabe auf einer VT100](res/RT-11_help.jpg "Symbolbild einer Kommandozeilenausgabe auf einer VT100, Photo by [Autopilot](https://commons.wikimedia.org/wiki/User:Autopilot) via Wikimedia / [CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/Category:CC-BY-SA-3.0)")
+
 Die Kommandozeile (oft auch Terminal oder Konsole genannt) ist eine rein textbasierte Möglichkeit, mit dem eigenen Betriebssystem zu interagieren. 
 Da die meisten modernen Betriebssysteme standardmäßig über grafische Oberflächen (mit Maus und Fenstern) gesteuert werden, kann man einen Computer jahrelang nutzen, ohne jemals mit der Kommandozeile in Berührung zu kommen. 
+
 Für die Ausführung von Python-Skripten, das Installieren von Softwarepaketen oder die Automatisierung von Routineaufgaben ist die Kommandozeile jedoch das mächtigere und oft direktere Werkzeug. Im Folgenden schauen wir uns an, wie wir dieses Werkzeug aufrufen und uns darin bewegen.
 
 ### Kommandozeile öffnen
@@ -71,38 +79,41 @@ Der erste Schritt ist das Öffnen des entsprechenden Programms. Hier unterscheid
 <details>
 <summary>Windows (PowerShell)</summary>
 
-Unter Windows nutzen wir die **PowerShell**, da sie moderner und leistungsfähiger ist als die alte Eingabeaufforderung (cmd).
-1. Drücken Sie die Windows-Taste auf Ihrer Tastatur (oder klicken Sie unten in der Taskleiste auf das Start-Symbol / die Lupe).
-2. Tippen Sie das Wort `powershell` ein.
-3. Klicken Sie auf das Suchergebnis **Windows PowerShell**, um das Programm zu öffnen. Es öffnet sich ein Fenster mit einem meist blauen oder schwarzen Hintergrund und einem blinkenden Cursor.
+> Unter Windows nutzen wir die **PowerShell**, da die sie mit der hier verwendeten Bash Syntax kompatibel ist.
+> 1. Drücken Sie die Windows-Taste auf Ihrer Tastatur (oder klicken Sie unten in der Taskleiste auf das Start-Symbol / die Lupe).
+> 2. Tippen Sie das Wort `powershell` ein.
+> 3. Klicken Sie auf das Suchergebnis **Windows PowerShell**, um das Programm zu öffnen. Es öffnet sich ein Fenster mit einem meist blauen oder schwarzen Hintergrund und einem blinkenden Cursor.
+Sollte die PowerShell nicht bereits installiert sein (kann bei älteren Windows Versionen der Fall sein), folgen Sie bitte den offiziellen [Installationsanweisungen](https://learn.microsoft.com/de-de/powershell/scripting/install/install-powershell-on-windows) von Microsoft.
 </details>
 
 <details>
 <summary><b>MacOS (Terminal)</b></summary>
 
-Auf dem Mac ist die App **Terminal** bereits vorinstalliert.
-1. Öffnen Sie die Spotlight-Suche. Drücken Sie dafür gleichzeitig die Tasten `[cmd] + [Leertaste]`.
-2. Tippen Sie das Wort `Terminal` in das Suchfeld ein.
-3. Drücken Sie `[Enter]` oder klicken Sie auf das Suchergebnis, um das Terminal zu starten. Ein Fenster mit weißem oder schwarzem Hintergrund und einem blinkenden Cursor öffnet sich.
+>Auf dem Mac ist die App **Terminal** bereits vorinstalliert.
+> 1. Öffnen Sie die Spotlight-Suche. Drücken Sie dafür gleichzeitig die Tasten `[cmd] + [Leertaste]`.
+> 2. Tippen Sie das Wort `Terminal` in das Suchfeld ein.
+> 3. Drücken Sie `[Enter]` oder klicken Sie auf das Suchergebnis, um das Terminal zu starten. Ein Fenster mit weißem oder schwarzem Hintergrund und einem blinkenden Cursor öffnet sich.
 </details>
 
 <details>
 <summary><b>Linux (Terminal)</b></summary>
 
-1. In den meisten gängigen Linux-Distributionen (wie Ubuntu) können Sie das Terminal ganz einfach über die Tastenkombination `[Strg] + [Alt] + [T]` öffnen.
-2. Alternativ finden Sie es im Anwendungsmenü unter dem Namen **Terminal** oder **Konsole**.
+> 1. In den meisten gängigen Linux-Distributionen (wie Ubuntu) können Sie das Terminal ganz einfach über die Tastenkombination `[Strg] + [Alt] + [T]` öffnen.
+> 2. Alternativ finden Sie es im Anwendungsmenü unter dem Namen **Terminal** oder **Konsole**.
+> 3. Sollten Sie eine andere Distribution als Ubuntu oder einen anderen Window Manager als Gnome verwenden, hegen wir den begründeten Verdacht, dass Sie wissen, wie man die Kommandozeile öffnet!
+
 </details>
 
 ### Navigation und das Arbeitsverzeichnis
 
-Sobald Sie die Kommandozeile geöffnet haben, befinden Sie sich immer an einem bestimmten virtuellen Ort auf Ihrem Computer. Das ist wie in einem physischen Museumsdepot oder Archiv: Sie stehen immer in einem konkreten Raum vor einem bestimmten Regal, auch wenn Sie theoretisch Schlüssel für das ganze Gebäude haben. 
+Sobald Sie die Kommandozeile geöffnet haben, befinden Sie sich immer an einem bestimmten virtuellen Ort auf Ihrem Computer. Das ist wie in einem physischen Gebäude. Sie befinden sich immer in einem konkreten Raum, auch wenn Sie theoretisch Schlüssel für das ganze Gebäude haben. 
 
 Dieser "Raum" wird als Current Working Directory (CWD), also das aktuelle Arbeitsverzeichnis, bezeichnet. Das CWD bestimmt, an welchem Ort im Dateisystem Ihre Befehle ausgeführt werden. Wenn Sie beispielsweise den Befehl geben "Lege hier einen neuen Ordner an", passiert das genau in Ihrem CWD.
 
-Um sich durch die Verzeichnisse zu bewegen, müssen Sie dem System den Weg beschreiben. Das tun wir über sogenannte Pfade. Hier gibt es zwei wichtige Konzepte zu unterscheiden:
+Um sich durch die Verzeichnisse zu bewegen, müssen Sie dem System den Weg beschreiben. Das tun wir über sogenannte Pfade, die entweder relativ oder absolut sein können.
 
 **1. Absolute Pfade (Die vollständige Adresse)**
-Ein absoluter Pfad ist wie eine exakte postalische Anschrift. Er beginnt immer ganz oben an der Wurzel Ihres Dateisystems (z.B. bei `C:\ ` unter Windows oder `/` bei MacOS/Linux) und beschreibt den exakten Weg bis zur Zieldatei. Ein absoluter Pfad funktioniert immer, egal in welchem CWD Sie sich gerade befinden.
+Ein absoluter Pfad ist wie eine exakte postalische Anschrift. Er beginnt immer ganz oben an der Wurzel Ihres Dateisystems (z.B. bei `C:\ ` unter Windows oder `/` bei MacOS/Linux) und beschreibt den exakten Weg bis zur Zieldatei. Ein absoluter Pfad funktioniert zeigt immer auf den gleichen Ort in ihrem Dateisystem, egal in welchem CWD Sie sich gerade befinden.
 * Beispiel Windows: `C:\Benutzer\Name\Dokumente\Projekt`
 * Beispiel Mac/Linux: `/Users/Name/Documents/Projekt`
 
@@ -137,7 +148,7 @@ Wenn Sie anfangen, einen Ordner- oder Dateinamen einzutippen, und dann die Tab-T
 * Die Kommandozeile vervollständigt den Befehl automatisch zu `cd Sammlungsdaten_Export_2026`.
 * Gibt es mehrere Dateien, die mit "Samm" anfangen, können Sie die Tab-Taste mehrfach drücken, um durch die verschiedenen Möglichkeiten durchzuschalten.
 
-Das funktioniert nicht nur für die vervollständigung von Datei- und Ordnernamen, sondern lässt sich auch in vielen weiteren Kontexten anwenden. Zum Beispiel lassen sich auch andere Konsolenbefehle automatisch vervollständigen, sobald genug Zeichen getippt sind, um das Kommando eindeutig zu identifizieren. Sollten noch nicht genug Zeichen getippt sein führt ein mehrmaliges Drücken der Tabulatortaste zu einer Anzeige der Optionen. Das ist sehr nützlich wenn man sich mal nicht genau an ein Kommando erinnern kann -- oder einfach keine Lust hat, so viel zu tippen! 
+Das funktioniert nicht nur für die Vervollständigung von Datei- und Ordnernamen, sondern auch zur automatischen Expansion von Kommandozeilenbefehlen. Auch andere Konsolenbefehle lassen sich automatisch vervollständigen, sobald genug Zeichen getippt sind, um das Kommando eindeutig zu identifizieren. Sollten noch nicht genug Zeichen getippt sein führt ein mehrmaliges Drücken der Tabulatortaste zu einer Anzeige der Optionen. Das ist sehr nützlich wenn man sich mal nicht genau an ein Kommando erinnern kann -- oder einfach keine Lust hat, so viel zu tippen! 
 
 
 #### Befehlshistorie (Command History)
@@ -157,46 +168,94 @@ Neben der reinen Navigation können Sie über die Kommandozeile natürlich auch 
 
 **1. Einen neuen Ordner anlegen (`mkdir`)**
 Um in Ihrem aktuellen Arbeitsverzeichnis einen neuen Ordner zu erstellen, nutzen Sie den Befehl `mkdir` (steht für make directory), gefolgt von einem Leerzeichen und dem gewünschten Namen.
-* Beispiel: `mkdir Forschungsprojekt_2026` 
+* Beispiel: `mkdir Projekt_Umgebungsverwaltung`
 * Wenn Sie danach `ls` eingeben, werden Sie sehen, dass der neue Ordner aufgetaucht ist.
 
 **2. Einen Ordner löschen (`rm`)**
 Um Dateien oder ganze Ordner zu löschen, wird der Befehl `rm` (remove) verwendet. Da ein Ordner weitere Dateien enthalten kann, müssen wir der Kommandozeile sagen, dass sie den Ordner und seinen gesamten Inhalt (rekursiv) löschen soll. Dafür hängen wir ein `-r` an den Befehl an.
-* Beispiel: `rm -r Forschungsprojekt_2026`
-* **Achtung:** Wenn Sie Dateien oder Ordner über die Kommandozeile löschen, landen diese in der Regel nicht im Papierkorb, sondern sind sofort unwiderruflich weg! Nutzen Sie diesen Befehl also mit Vorsicht.
-
-### Quiz: Kommandozeilen-Führerschein
-
-Lassen Sie uns kurz überprüfen, ob die wichtigsten Konzepte zur Navigation sitzen, bevor wir uns an die Installation von Python machen!
-
-**Frage 1: Sie befinden sich im Ordner `Dokumente/Forschungsprojekt/Daten`. Welchen Befehl nutzen Sie, um genau einen Raum (Ordner) zurück nach `Forschungsprojekt` zu gehen?**
-
-[( )] `cd Forschungsprojekt`
-[( )] `cd /`
-[(X)] `cd ..`
-[( )] `ls`
-
-
-**Frage 2: Sie möchten einen Befehl ausführen, den Sie vor fünf Minuten schon einmal fehlerfrei eingetippt haben. Was ist der effizienteste Weg?**
-
-[( )] Ich tippe ihn vorsichtig und Zeichen für Zeichen neu ab.
-[(X)] Ich drücke mehrmals die Pfeil-nach-oben-Taste `[↑]`, bis der Befehl wieder erscheint, und drücke Enter.
-[( )] Ich drücke die `[Tab]`-Taste, damit die Kommandozeile errät, was ich vorhabe.
-
-
-**Frage 3: Was passiert, wenn Sie den Befehl `ls` eingeben und Enter drücken?**
-
-[( )] Die Kommandozeile wird geschlossen.
-[(X)] Alle Dateien und Unterordner in meinem aktuellen Arbeitsverzeichnis (CWD) werden als Liste angezeigt.
-[( )] Mein Computer sucht im Internet nach Updates.
+* Beispiel: `rm -r Projekt_Umgebungsverwaltung`
+* **Achtung:** Wenn Sie Dateien oder Ordner über die Kommandozeile löschen, landen diese in der Regel nicht im Papierkorb, sondern verschwinden sofort unwiderruflich! Nutzen Sie diesen Befehl also mit Vorsicht.
 
 ### Weiterführende Kommandozeilen-Einführungen
 
-In diesem Tutorial haben wir nur an der absoluten Oberfläche der Kommandozeile gekratzt (Navigation mit `cd` und Auflisten mit `ls`). Wenn Sie lernen möchten, wie Sie zehntausende Dateien in Sekundenbruchteilen umbenennen, durchsuchen oder automatisierte Abläufe starten, finden Sie hier exzellente, speziell für Forschende und Geisteswissenschaftler:innen aufbereitete Einstiegshilfen:
+In diesem Tutorial haben wir nur an der Oberfläche der Kommandozeile gekratzt. Wenn Sie lernen möchten, wie Sie zehntausende Dateien in Sekundenbruchteilen umbenennen, durchsuchen oder automatisierte Abläufe starten, finden Sie hier exzellente, speziell für Forschende und Geisteswissenschaftler:innen aufbereitete Einstiegshilfen und Vertiefungen:
 
 * **[The Programming Historian](https://programminghistorian.org/):** Bietet hervorragende Einführungen, beispielsweise die (Introduction to the Windows Command Line with PowerShell)[https://programminghistorian.org/en/lessons/intro-to-powershell] oder (Introduction to the Bash Command Line)[https://programminghistorian.org/en/lessons/intro-to-bash].
-* **[Library Carpentry - The UNIX Shell](https://librarycarpentry.org/lc-shell/):** Ein englischsprachiger, speziell für Bibliothekar:innen und Mitarbeitende an Sammlungen entwickelter Kurs. Er zeigt Schritt für Schritt die enorme Zeitersparnis der Kommandozeile bei der täglichen Datenverarbeitung.
-* **[Ubuntuusers Wiki (Shell)](https://wiki.ubuntuusers.de/Shell/Einf%C3%BChrung/):** Für Nutzer:innen von Linux (und in weiten Teilen auch Mac) bietet dieses sehr verständliche, deutschsprachige Wiki einen tollen Einstieg in die tiefere Funktionsweise des Terminals.
+* **[Library Carpentry - The UNIX Shell](https://librarycarpentry.org/lc-shell/):** Ein englischsprachiger, speziell für Bibliothekar:innen und Mitarbeitende an Sammlungen entwickelter Kurs. Er zeigt Schritt für Schritt die Zeitersparnis der Kommandozeile bei der täglichen Datenverarbeitung.
+* **[Ubuntuusers Wiki (Shell)](https://wiki.ubuntuusers.de/Shell/Einf%C3%BChrung/):** Für Nutzer:innen von Linux (und in weiten Teilen auch Mac) bietet dieses verständliche, deutschsprachige Wiki einen Einstieg in die tiefere Funktionsweise des Terminals.
+
+### Quiz: Kommandozeile
+
+**Frage 1: Sie befinden sich aktuell im Verzeichnis `/Users/Forschung/Projekt_A`. Sie möchten in das parallel liegende Verzeichnis `/Users/Forschung/Archiv` wechseln. Welcher relative Befehl ist korrekt?**
+
+[(X)] `cd ../Archiv`
+[( )] `cd /Archiv`
+[( )] `cd ./Archiv`
+[( )] `cd .../Archiv`
+
+**Frage 2: Was passiert exakt, wenn Sie den Befehl `rm -r ../Projekt` ausführen, während Ihr aktuelles Arbeitsverzeichnis (CWD) `/Dokumente/Projekt/Daten` lautet?**
+
+[( )] Der Befehl schlägt fehl, da man keine Ordner löschen kann, in denen man sich gerade befindet.
+[( )] Der Ordner "Projekt" wird in den Papierkorb verschoben.
+[(X)] Der Ordner "Projekt" und all seine Inhalte (inklusive des Ordners "Daten", in dem Sie sich aktuell befinden) werden sofort und permanent gelöscht.
+[( )] Es wird nur der leere Ordner "Projekt" gelöscht, da Dateien durch das Argument `-r` geschützt sind.
+
+**Frage 3: Aus welchem spezifischen Grund wird im Tutorial für Windows-Nutzer die PowerShell anstelle der älteren Eingabeaufforderung (cmd) empfohlen?**
+
+[( )] Weil sie als einziges Windows-Terminal absolute Pfade verarbeiten kann.
+[(X)] Weil sie mit der Bash-Syntax kompatibel ist, wodurch die gleichen Befehle (wie `ls` oder `rm`) wie unter MacOS und Linux genutzt werden können.
+[( )] Weil sie standardmäßig einen eingebauten Python-Interpreter besitzt.
+[( )] Weil sie Befehle automatisch vervollständigt, ohne dass man die Tabulatortaste drücken muss.
+
+**Frage 4: Sie tippen `cd Pr` und drücken die Tabulatortaste. Das Terminal vervollständigt den Begriff nicht und es scheint gar nichts zu passieren. Was ist laut Text die wahrscheinlichste Ursache?**
+
+[( )] Tab-Vervollständigung funktioniert grundsätzlich nur bei der Eingabe von absoluten Pfaden.
+[(X)] Die Buchstabenfolge "Pr" ist noch nicht eindeutig (es gibt im Ordner z.B. "Projekt" und "Privat"). Sie müssen Tab mehrmals drücken, um die Optionen durchzuschalten.
+[( )] Die Tabulatortaste funktioniert nicht für Ordnernamen, sondern nur für ausführbare Dateien.
+[( )] Sie haben weniger als die zwingend erforderlichen drei Zeichen getippt.
+
+**Frage 5: Was bewirkt der Befehl `cd ./Projekt`, wenn Sie sich aktuell im Verzeichnis `~/Dokumente` befinden?**
+
+[(X)] Er versucht, in einen Unterordner namens "Projekt" zu wechseln, der sich direkt in `~/Dokumente` befindet.
+[( )] Er wirft eine Fehlermeldung, da ein einzelner Punkt in Dateipfaden unzulässig ist.
+[( )] Er navigiert eine Verzeichnisebene nach oben und sucht dort nach "Projekt".
+[( )] Er erstellt einen neuen Ordner "Projekt" und navigiert gleichzeitig hinein.
+
+**Frage 6: Sie haben soeben 10 verschiedene Befehle in der Kommandozeile nacheinander ausgeführt. Sie drücken nun die Pfeil-nach-oben-Taste (`[↑]`) genau drei Mal. Da Sie zu weit zurückgegangen sind, drücken Sie danach einmal die Pfeil-nach-unten-Taste (`[↓]`). Welcher Befehl wird Ihnen nun in der Eingabezeile angezeigt?**
+
+[( )] Der 7. Befehl, den Sie eingegeben haben.
+[(X)] Der 9. Befehl, den Sie eingegeben haben.
+[( )] Der 8. Befehl, den Sie eingegeben haben.
+[( )] Die Historie wird gelöscht, die Zeile ist leer.
+
+**Frage 7: Welcher der folgenden Pfade ist laut der Definition im Tutorial eindeutig ein "Absoluter Pfad"?**
+
+[( )] `Dokumente/Projekt/Daten`
+[( )] `../Users/Name/Documents`
+[(X)] `/Users/Name/Documents/Projekt`
+[( )] `./Projekt`
+[(X)] `~/Users/Name/Documents/Projekt`
+
+**Frage 8: Sie möchten in einem leeren Arbeitsverzeichnis einen neuen Ordner "Test" erstellen und sofort in diesen hineinwechseln. Welche Befehlsfolge ist dafür korrekt?**
+
+[( )] Zuerst `cd Test`, dann `mkdir Test`
+[(X)] Zuerst `mkdir Test`, dann `cd Test`
+[( )] Ein einfaches `mkdir cd Test` reicht aus
+[( )] Zuerst `mkdir Test`, dann `pwd Test`
+
+**Frage 9: Was verdeutlicht die im Text verwendete Metapher des "Gebäudes und der konkreten Räume" in Bezug auf die Kommandozeile?**
+
+[( )] Das Prinzip von Administratorenrechten, die einem "Schlüssel" für das gesamte System entsprechen.
+[( )] Die Funktion der Tab-Vervollständigung, die einem automatisch die Türen öffnet.
+[( )] Dass sich die Befehlshistorie wie ein Grundriss des Gebäudes verhält.
+[(X)] Das Konzept des Current Working Directory (CWD), das als "Standort" den Ausgangspunkt für alle relativen Befehle festlegt.
+
+**Frage 10: Warum ist es laut den Hinweisen im Text besonders riskant, den Befehl `rm -r` versehentlich mit einem absoluten Pfad auf die Wurzel des Systems (z.B. `/` oder `C:\`) auszuführen?**
+
+[( )] Weil dies den Papierkorb des Betriebssystems restlos überfüllen und abstürzen lassen würde.
+[(X)] Weil der Befehl das gesamte Betriebssystem permanent und ohne Backup löschen würde, da das `-r` Argument alle Unterordner einbezieht.
+[( )] Weil dadurch die Kommandozeile ihre administrativen Rechte verliert.
+[( )] Weil der Befehl dann die Tab-Vervollständigung für die aktuelle Sitzung dauerhaft blockiert.
 
 ## Python 
 
@@ -209,7 +268,7 @@ Python funktioniert anders: Es ist eine interpretierte Sprache. Das bedeutet, de
 Warum ist das wichtig? Weil ein Python-Skript (der Text) nicht für sich alleine lauffähig ist. Es bringt keinen eigenen Übersetzer mit. Um ein Python-Projekt von GitHub auf Ihrem Computer auszuführen, müssen wir also sicherstellen, dass auf unserem System der richtige Interpreter bereitsteht. Genau das macht das Thema Umgebungsverwaltung später so wichtig.
 
 **2. Ein gigantisches Ökosystem an Paketen**
-Niemand muss bei Null anfangen. Die weltweite Python-Community hat für fast jedes erdenkliche Problem bereits fertige Bausteine geschrieben, sogenannte Bibliotheken (Libraries) oder Pakete (Packages). Ob Sie Texte maschinell auswerten, automatische Objekterkennung in Bildern nutzen oder Metadaten aus Tabellen auslesen wollen: Es gibt dafür zehntausende vorgefertigte Pakete, die wir einfach in unser Projekt laden können. 
+Niemand muss das Rad neu erfinden. Die weltweite Python-Community hat für fast jedes erdenkliche Problem bereits fertige Bausteine geschrieben, sogenannte Bibliotheken (Libraries) oder Pakete (Packages). Ob Sie Texte maschinell auswerten, automatische Objekterkennung in Bildern nutzen oder Metadaten aus Tabellen auslesen wollen: Es gibt dafür zehntausende vorgefertigte Pakete, die wir einfach in unser Projekt laden können. 
 
 ### Installation
 
@@ -217,36 +276,37 @@ Damit unser Computer Python-Code interpretieren kann, müssen wir Python zunäch
 
 <details>
 <summary><b>Windows</b></summary>
-1. Laden Sie den Python Install Manager von der offiziellen Website [Python.org](https://www.python.org/) herunter und führen Sie die Datei aus. Wichtig: Setzen Sie im allerersten Fenster des Installers unbedingt unten das Häkchen bei "Add Python to PATH"!
-2. Um eine bestimmte installierte Version über das Terminal (PowerShell) aufzurufen, können Sie den Befehl `py -V:<VERSION>` nutzen, z.B. `py -V:3.11`.
+> 1. Laden Sie den Python Install Manager von der offiziellen Website [Python.org](https://www.python.org/) herunter und führen Sie die Datei aus. Wichtig: Setzen Sie im allerersten Fenster des Installers unbedingt unten das Häkchen bei "Add Python to PATH"!
+> 2. Um eine bestimmte installierte Version über das Terminal (PowerShell) aufzurufen, können Sie den Befehl `py -V:<VERSION>` nutzen, z.B. `py -V:3.11`.
 </details>
 
 <details>
 <summary><b>MacOS</b></summary>
 
-Auf dem Mac empfehlen wir die Installation über die Kommandozeile, um spätere Versionen leichter verwalten zu können.
-1. Öffnen Sie Ihr Terminal.
-2. Falls Sie Homebrew (einen beliebten Paketmanager für Mac) noch nicht installiert haben, folgen Sie kurz den Anweisungen auf [brew.sh](https://brew.sh/).
-3. Wir nutzen das Tool `pyenv` zur Verwaltung der Versionen. Geben Sie ein: `brew install pyenv` und drücken Sie Enter.
-4. Installieren Sie nun Python (z.B. Version 3.11) mit dem Befehl: `pyenv install 3.11`
+> Auf dem Mac empfehlen wir die Installation über die Kommandozeile, um spätere Versionen leichter verwalten zu können.
+> 1. Öffnen Sie Ihr Terminal.
+> 2. Falls Sie Homebrew (einen beliebten Paketmanager für Mac) noch nicht installiert haben, folgen Sie kurz den Anweisungen auf [brew.sh](https://brew.sh/).
+> 3. Wir nutzen das Tool `pyenv` zur Verwaltung der Versionen. Geben Sie ein: `brew install pyenv` und drücken Sie Enter.
+> 4. Installieren Sie nun Python (z.B. Version 3.11) mit dem Befehl: `pyenv install 3.11`
 </details>
 
 <details>
 <summary><b>Linux (z.B. Ubuntu)</b></summary>
 
-Linux-Systeme bringen oft schon eine Python-Version mit oder lassen sich sehr einfach über den integrierten Paketmanager aktualisieren.
-1. Öffnen Sie das Terminal.
-2. Installieren Sie Python über den von ihnen verwendeten Paketmanager, z.B. unter ubuntu: `sudo apt update && sudo apt install python3`
+> Linux-Systeme bringen oft schon eine Python-Version mit oder lassen sich sehr einfach über den integrierten Paketmanager aktualisieren.
+> 1. Öffnen Sie das Terminal.
+> 2. Installieren Sie Python über den von ihnen verwendeten Paketmanager, z.B. unter ubuntu: `sudo apt update && sudo apt install python3`
 </details>
 
 
-### Quiz: Erkennt die Kommandozeile Python?
 
 Lassen Sie uns direkt überprüfen, ob die Installation erfolgreich war und Ihr Computer den Interpreter nun kennt. 
 Öffnen Sie Ihre Kommandozeile und geben Sie folgenden Befehl ein (und drücken Sie Enter):
 
 * Unter Windows: `python --version` (falls das nicht klappt, probieren Sie `py --version`)
 * Unter Mac/Linux: `python3 --version` (oder auch `python --version`)
+
+**Quiz: Erkennt die Kommandozeile Python?**
 
 **Was wird Ihnen in der Kommandozeile als Antwort (Output) ausgegeben?**
 
@@ -318,6 +378,42 @@ Dieses Tutorial konzentriert sich gezielt auf die Umgebungsverwaltung und das Au
 * **[Offizielles Python-Tutorial](https://docs.python.org/de/3/tutorial/index.html):** Die offizielle Dokumentation ist mittlerweile sehr gut ins Deutsche übersetzt und bietet einen soliden Rundumschlag.
 * **[W3Schools Python Tutorial](https://www.w3schools.com/python/):** Eine sehr einsteigerfreundliche, englischsprachige Seite, bei der Sie viele Konzepte direkt im Browser ausprobieren können.
 
+### Quiz: Python 
+
+**Frage 1: Warum ist das Thema "Umgebungsverwaltung" bei Python laut Text so viel relevanter als bei traditionellen, kompilierten Programmiersprachen wie C++?**
+
+[( )] Weil Python-Programme zwingend eine grafische Benutzeroberfläche benötigen, die vom Betriebssystem simuliert werden muss.
+[( )] Weil der Quellcode bei Python bei jeder Ausführung dauerhaft in Maschinencode (z.B. `.exe`) umgewandelt und auf der Festplatte gespeichert wird.
+[(X)] Weil ein Python-Skript nur lesbarer Text ist, der keinen eigenen Übersetzer mitbringt, sondern exakt von der Laufzeitumgebung und den Paketen abhängt, die lokal auf dem System bereitstehen.
+[( )] Weil Python-Pakete (Libraries) nach jeder Ausführung eines Skripts automatisch vom System gelöscht werden.
+
+**Frage 2: Sie sollen für Ihr erstes Skript einen Editor öffnen. Warum warnt das Tutorial ausdrücklich davor, Textverarbeitungsprogramme wie Microsoft Word zum Schreiben von Python-Code zu verwenden?**
+
+[(X)] Weil Word unsichtbare Formatierungen (wie Schriftarten, Zeilenabstände) in der Datei speichert, die kein reiner Text sind und an denen der Python-Interpreter beim Lesen scheitern würde.
+[( )] Weil Word-Dokumente aus Lizenzgründen vom Python-Interpreter blockiert werden.
+[( )] Weil Word die Dateiendung automatisch in `.exe` ändert und der Code somit kompiliert wird.
+[( )] Weil Skripte, die in Word geschrieben wurden, nur mit Administratorrechten in der Kommandozeile ausgeführt werden dürfen.
+
+**Frage 3: Ein Kollege nutzt Windows, hat Python heruntergeladen und installiert. Wenn er nun `python --version` im Terminal eingibt, meldet das System: "Der Befehl 'python' ist entweder falsch geschrieben oder konnte nicht gefunden werden." Was hat er höchstwahrscheinlich falsch gemacht?**
+
+[( )] Er hat Python in der PowerShell statt in der älteren Eingabeaufforderung (cmd) aufgerufen.
+[( )] Er hat vergessen, das Skript mit `pyenv install` zu aktivieren.
+[( )] Er versucht ein Skript auszuführen, ohne dass eine `.py` Datei im aktuellen Verzeichnis (CWD) liegt.
+[(X)] Er hat beim ersten Installationsfenster ganz unten das wichtige Häkchen bei "Add Python to PATH" nicht gesetzt, weshalb das Terminal nicht weiß, wo das Programm liegt.
+
+**Frage 4 (Nur für Windows User): Sie nutzen Windows und haben testweise Python 3.9 neben einer neueren Version installiert. Wie lautet der spezifische Aufruf, um ein Skript (z.B. `hello.py`) über den "Python Launcher" gezielt mit der älteren Version 3.9 auszuführen?**
+
+[( )] `python3.9 hello.py`
+[(X)] `py -3.9 hello.py`
+[( )] `python --version 3.9 hello.py`
+[( )] `pyenv exec 3.9 hello.py`
+
+**Frage 5 (nur für Mac User): Auf einem Mac nutzen Sie das Werkzeug `pyenv` für das "Multi-Python"-Szenario. Mit welchem konkreten Befehl können Sie sich anzeigen lassen, welche Python-Versionen Ihnen auf dem Mac nun insgesamt zur Verfügung stehen?**
+
+[( )] `py -V:all`
+[( )] `python3 --versions`
+[(X)] `pyenv versions`
+[( )] `brew list python`
 
 ## Umgebungsvirtualisierung
 
@@ -384,7 +480,7 @@ Lassen Sie uns unsere erste Umgebung namens `venv1` erstellen. Tippen Sie dafür
 * Mac/Linux: `python3 -m venv venv1`
 
 Wenn Sie nun `ls`, sehen Sie, dass ein neuer Ordner namens `venv1` aufgetaucht ist. 
-Die Umgebung existiert jetzt, aber sie ist noch nicht aktiv. Wir müssen unserem System erst explizit sagen: "Für alle Befehle, die jetzt kommen, schaue nur in diesen speziellen Ordner und ignoriere den Rest des Computers!" Das tun wir durch das Aktivieren.
+Die Umgebung existiert jetzt, aber sie ist noch nicht aktiv. Wir müssen unserem System erst explizit sagen: "Für alle Python befehle, die jetzt kommen, verwende die in diesem Ordner bereitgestellte Python Umgebung und ignoriere den Rest".
 
 Klappen Sie die Anleitung für Ihr System auf und aktivieren Sie `venv1`:
 
@@ -473,6 +569,79 @@ Daneben existiert eine Vielzahl an weiteren Tools zur Umgebungsvirtualisierung u
 
 Wir beschränken uns hier dennoch ganz bewusst auf das leichtgewichtige, integrierte `venv`. Einerseits, weil keine weitere Software installiert werden muss und es im Regelfall völlig ausreicht. Andererseits, weil gerade im händischen Umgang mit `venv` die grundlegenden Zusammenhänge zwischen Programmumgebung, Dateisystem und Betriebssystem für Einsteiger:innen besonders gut klar und greifbar werden.
 
+### Quiz: Umgebungsvirtualisierung 
+
+**Frage 1: Was unterscheidet laut Text die Ausführungsumgebung eines klassischen, kompilierten Programms (wie Microsoft Word) von der eines Python-Skripts?**
+
+[( )] Kompilierte Programme benötigen zwingend externe Bibliotheken, während Python-Skripte autark laufen.
+[( )] Es gibt keinen Unterschied; beide kommunizieren ausschließlich über den Python-Interpreter mit der Hardware.
+[(X)] Kompilierte Programme kommunizieren direkt über System Calls mit dem Betriebssystem, während Python-Skripte zusätzliche Schichten (den Interpreter und Python-Bibliotheken) über dem Betriebssystem benötigen.
+[( )] Python-Skripte bringen alle benötigten Bausteine bereits in ihrem eigenen Installationsordner mit, während kompilierte Programme das nicht tun.
+
+**Frage 2: Welches genaue Szenario beschreibt das im Text erklärte Problem der "Versionskonflikte"?**
+
+[( )] Zwei unterschiedliche Betriebssysteme versuchen gleichzeitig auf dasselbe Python-Skript zuzugreifen.
+[(X)] Projekt A benötigt Paket X in Version 1.0, Projekt B verlangt Paket X in Version 2.0. Bei einer globalen Installation überschreiben sich diese gegenseitig, wodurch eines der Projekte unweigerlich kaputtgeht.
+[( )] Eine veraltete Python-Version (z.B. 3.8) kann nicht auf einem modernen Betriebssystem installiert werden.
+[( )] GitHub blockiert den Download von Paketen, wenn deren Versionsnummern sich überschneiden.
+
+**Frage 3: Was passiert auf Dateisystem-Ebene exakt, wenn Sie den Befehl `python -m venv venv1` ausführen?**
+
+[( )] Das System lädt die neueste Python-Version aus dem Internet herunter und installiert sie global.
+[( )] Es werden alle global installierten Pakete in ein Archiv gepackt, um Platz zu sparen.
+[(X)] Es wird ein neuer Ordner erstellt, der eine isolierte Kopie des Python-Interpreters und einen eigenen, leeren Platz für Pakete enthält.
+[( )] Die Umgebung wird erstellt und sofort automatisch für die aktuelle Sitzung aktiviert.
+
+**Frage 4: Was ist der primäre technische Effekt, wenn Sie eine virtuelle Umgebung (z.B. über `source venv1/bin/activate` oder `.\venv1\Scripts\Activate.ps1`) aktivieren?**
+
+[(X)] Sie weisen das System an, für alle folgenden Python-Befehle ausschließlich den Interpreter und die Pakete in diesem spezifischen Ordner zu verwenden und den Rest des Systems zu ignorieren.
+[( )] Sie starten einen Hintergrunddienst, der automatisch fehlende Pakete von GitHub herunterlädt.
+[( )] Sie kompilieren die Python-Textdateien in maschinenlesbaren Code.
+[( )] Sie entziehen dem Betriebssystem die Rechte, auf den Projektordner zuzugreifen.
+
+**Frage 5: Sie haben ein Projekt, das zwingend Python 3.9 benötigt. Auf Ihrem Rechner sind global Python 3.9 und 3.12 installiert. Sie erstellen die Umgebung korrekt mit `python3.9 -m venv venv_alt` und aktivieren sie. Was passiert, wenn Sie nun einfach den Befehl `python --version` eintippen?**
+
+[( )] Das System wirft einen Fehler, da Sie zwingend `python3.9 --version` tippen müssen.
+[( )] Das System greift auf die Standardversion des Betriebssystems (3.12) zu.
+[( )] Das System fragt Sie über ein Pop-up, welche der beiden Versionen Sie nutzen möchten.
+[(X)] Das System gibt Version 3.9 aus, da der simple Befehl `python` in einer aktiven Umgebung immer automatisch auf den isolierten Interpreter dieses Venvs umgeleitet wird.
+
+**Frage 6: Wie entfernen Sie eine virtuelle Umgebung (z.B. `venv2`) mitsamt all ihren isolierten Paketen sauber und restlos von Ihrem Computer?**
+
+[( )] Durch die Eingabe des Befehls `python -m unvenv venv2`.
+[(X)] Indem Sie sicherstellen, dass die Umgebung deaktiviert ist, und dann einfach den Ordner `venv2` über das Dateisystem oder Terminal löschen.
+[( )] Sie müssen das offizielle Python-Deinstallationsprogramm starten.
+[( )] Durch die Eingabe von `deactivate --remove venv2`.
+
+**Frage 7: Laut Text ist Conda ein mächtiger alternativer Umgebungsmanager. Welchen entscheidenden technischen Vorteil bietet Conda im Vergleich zum Standard-Tool `venv`?**
+
+[( )] Conda ist direkt in Python eingebaut und benötigt keine zusätzliche Installation.
+[(X)] Conda kann nicht nur reine Python-Pakete verwalten, sondern bringt auch systemnahe Bibliotheken (z.B. C/C++) mit und verwaltet die Python-Basisversionen selbst.
+[( )] Conda verbraucht deutlich weniger Speicherplatz und Arbeitsspeicher als `venv`.
+[( )] Conda abstrahiert die Paketverwaltung komplett vom Dateisystem.
+
+**Frage 8: Warum wird Docker im Text als "in einer ganz anderen Liga spielend" beschrieben?**
+
+[( )] Weil es ausschließlich für die Erstellung von grafischen Benutzeroberflächen gedacht ist.
+[( )] Weil es Python-Skripte doppelt so schnell ausführt wie native Umgebungen.
+[(X)] Weil es nicht nur die Python-Umgebung isoliert, sondern gleich ein komplettes, minimales Betriebssystem in einem Container virtualisiert.
+[( )] Weil es als einziges Tool keine Ausnahmen bei der Portierbarkeit (wie z.B. bei Grafikkarten) zulässt.
+
+**Frage 9: Das Tutorial erwähnt moderne, stark abstrahierende Tools wie Poetry oder uv. Aus welchem didaktischen Grund beschränkt sich dieser Kurs dennoch bewusst auf das integrierte Tool `venv`?**
+
+[( )] Weil Poetry und uv kostenpflichtige Lizenzen erfordern.
+[(X)] Weil der händische Umgang mit `venv` die grundlegenden Zusammenhänge zwischen Programmumgebung, Dateisystem und Betriebssystem für Einsteiger:innen besonders greifbar macht.
+[( )] Weil `venv` das einzige Tool ist, das in den Digital Humanities verwendet wird.
+[( )] Weil moderne Tools wie uv auf Windows-Systemen grundsätzlich nicht funktionieren.
+
+**Frage 10: Der Text nutzt die Metapher eines Gartens. Wenn das Betriebssystem der Garten ist und die virtuelle Umgebung der Blumentopf – was repräsentieren dann logischerweise die "Nährstoffe" oder die "Erde", die exakt auf die Pflanze im Topf abgestimmt werden?**
+
+[( )] Die globalen System Calls des Betriebssystems.
+[(X)] Die spezifische Python-Version und die exakten Paket-Versionen (Dependencies), die isoliert im Ordner liegen.
+[( )] Die Hardware des Computers (wie RAM oder Festplatte).
+[( )] Der Quellcode von GitHub, der den Blumentopf herstellt.
+
+
 ## Paketmanagement mit Pip
 
 Wir haben nun unseren isolierten "Blumentopf" (die virtuelle Umgebung) aufgestellt. Aber er ist noch leer. Er enthält bisher nur das absolute Minimum, nämlich den Python-Interpreter selbst. Wie bekommen wir nun die nützlichen Erweiterungen, die sogenannten Pakete (Packages), in unsere Umgebung?
@@ -515,78 +684,221 @@ cowsay "Hallo aus dem SODa Tutorial!"
 Wenn alles geklappt hat, grüßt Sie nun eine kleine Kuh aus ASCII-Zeichen direkt im Terminal!
 
 ### Übung: Versionskonflikte auflösen
-BARPLOTME Integrieren
 
-### Quiz: Der häufigste Anfängerfehler
+Auch mit korrekt aufgesetzter Python Umgebung und fehlerfreier Bedienung von pip geht manchmal etwas schief. Im Gegenteil, für fast alle, die sich regelmäßig im Python Ökosystem bewegen, sind Versionskonflikte treue Begleiter. Mit etwas Verständnis für die Mechanismen lassen sie sich allerdings häufig unkompliziert beheben. 
 
-**Was passiert, wenn Sie vergessen, Ihr `venv` zu aktivieren, bevor Sie den Befehl `pip install cowsay` ausführen?**
+Oben haben Sie gelernt, wie Sie mit Hilfe von pip Pakete installieren können. Wenden Sie dieses Wissen nun an, um das Paket mit dem Namen "barplotme" zu installieren und versuchen Sie, das Programm zu starten, indem Sie den Befehl barplotme im Terminal eingeben. Was beobachten Sie?
+
+### Übung: Fehlermeldung interpretieren
+Wie Sie richtig erkannt haben, erscheint eine Fehlermeldung. Eine natürliche Reaktion besteht darin, das Projekt als "Funktioniert nicht" abzuhaken und sich mit etwas anderem zu beschäftigen. Doch wir sind stärker als dieses Verlangen! Wir schauen uns die Fehlermeldung an und versuchen zu verstehen, was schiefgelaufen ist und wie wir das Problem beheben könnten. 
+Versuchen Sie doch einmal das Problem zu identifizieren. Vielleicht fällt Ihnen ja sogar eine Lösung ein. Falls Sie nicht weiterkommen, klappen Sie gerne den untenstehenden Tipp aus!
+
+<details>
+<summary>Tipp</summary>
+
+Die Fehlermeldung weist Sie auf das Fehlen eines Paketes hin. Normalerweise werden alle notwendigen Abhängigkeiten mit pip Paketen mitgeliefert. Es kann allerdings vorkommen, dass besonders nachlässige Entwickler vergessen, die Abhängigkeiten zu spezifizieren. Dann müssen Sie selber aktiv werden. Versuchen Sie doch einmal, das in der Fehlermeldung genannte Paket per pip zu installieren.
+<details>
+<summary>Psst</summary>
+
+Das fehlende Paket heißt "matplotlib".
+
+Der Befehl um es zu installieren lautet 
+`
+pip install matplotlib
+`
+</details>
+
+</details>
+
+### Quiz: Paketmanagement
+
+**Frage 1: Was passiert, wenn Sie vergessen, Ihr `venv` zu aktivieren, bevor Sie den Befehl `pip install cowsay` ausführen?**
 
 [( )] Der Befehl schlägt sofort fehl und gibt eine Fehlermeldung aus, dass keine Umgebung gefunden wurde.
 [( )] Pip erstellt automatisch im Hintergrund eine neue Umgebung und installiert das Paket dort.
 [(X)] Das Paket wird global auf Ihrem Computer installiert und landet im großen, systemweiten "Topf".
 
-*******************************************************************************
-* Bei Antwort 1: Pip ist leider nicht so streng. Es geht davon aus, dass Sie wissen, was Sie tun.
-* Bei Antwort 2: Das wäre praktisch, passiert aber nicht automatisch.
-* Bei Antwort 3: **Korrekt (und gefährlich)!** Wenn vorne in der Zeile kein `(venv)` steht, geht der Befehl direkt an Ihr Betriebssystem. Sie installieren das Paket dann global, was auf Dauer wieder genau zu dem Chaos und der "Abhängigkeits-Hölle" führt, die wir ja eigentlich vermeiden wollten! **Prüfen Sie also immer, ob Ihre Umgebung aktiviert ist, bevor Sie `pip install` tippen.**
-*******************************************************************************
+**Frage 2: Welche Funktion hat das barplotme Paket, das Sie in der Übung installiert haben**
 
-## Open Source Projekte Finden
+[( )] Es öffnet eine Oberfläche zur Erstellung verschiedener Diagramme.
+[( )] Gar keine, es lässt sich nämlich nicht öffnen.
+[(X)] Es zeichnet ein Balkendiagramm aus übergebenen Zahlen.
 
-Wir haben nun alle Werkzeuge im Kasten: Wir können in der Kommandozeile navigieren, Python-Interpreter steuern, sichere Umgebungen (Venvs) anlegen und Pakete mit Pip installieren. 
+**Frage 3: Wofür steht die Abkürzung PyPI, mit der sich Pip bei der Installation verbindet?**
 
-Aber wo finden wir nun die eigentlichen Programme, Algorithmen und Tools für unsere Sammlungsdaten? In der Welt der Open-Source-Software gibt es dafür vor allem zwei zentrale Anlaufstellen, deren Namen Ihnen ab jetzt ständig begegnen werden.
+[(X)] Python Package Index
+[( )] Python Programming Interface
+[( )] Python Package Installer
+[( )] Python Project Integration
+
+**Frage 4: Sie führen den Befehl `pip list` in einer frisch erstellten und aktivierten Umgebung aus, *bevor* Sie eigene Pakete installieren. Was erwarten Sie als Ausgabe?**
+
+[(X)] Eine kurze Liste, die nur die absolute Grundausstattung wie `pip` selbst anzeigt.
+[( )] Eine komplett leere Tabelle, da noch nichts installiert wurde.
+[( )] Eine Liste aller Pakete, die jemals auf diesem Computer heruntergeladen wurden.
+[( )] Eine Fehlermeldung, da der Befehl nur funktioniert, wenn mindestens ein externes Paket installiert ist.
+
+**Frage 5: Warum kam es bei der Installation von `barplotme` zu einer Fehlermeldung beim Starten, obwohl der `pip install`-Befehl selbst erfolgreich durchlief?**
+
+[( )] Weil `barplotme` eine veraltete Python-Version benötigt.
+[( )] Weil das Paket absichtlich als Virus programmiert wurde.
+[(X)] Weil die Entwickler vergessen haben, eine benötigte Abhängigkeit (in diesem Fall `matplotlib`) in den Paketinformationen zu hinterlegen, sodass Pip sie nicht automatisch mitinstalliert hat.
+[( )] Weil das Paket global installiert wurde und nicht in der virtuellen Umgebung.
+
+## Open Source Projekte 
+
+Wir können nun in der Kommandozeile navigieren, Python-Interpreter steuern, sichere Umgebungen (Venvs) anlegen und Pakete mit Pip installieren. Aber wo finden wir nun die versprochenen Open Source Projekte, die wir bei uns selbst installieren können um uns das Leben zu erleichtern?
+
+Der Quellcode der Projekte selbst liegt meistens auf sogenannten Code Repositories. Von denen ist das von Microsoft betriebene GitHub das bekannteste, deswegen werden wir uns im Folgenden darauf konzentrieren. 
+
+Im Sinne der Datenautonomie lohnt es sich allerdings darauf hinzuweisen, dass neben GitHub auch weitere, teilweise nichtkommerzielle Repositories wie [GitLab](https://about.gitlab.com/) oder [Codeberg](https://codeberg.org) existieren. Auch wenn sich aktuell GitHub als De-Facto Standard etabliert hat, ist die Existenz dieser Alternativen extrem wichtig, insbesondere angesichts aktueller politischer Entwicklungen in den USA.
 
 ### GitHub: Die Bibliothek für den Quellcode
 
-[GitHub](https://github.com/) ist die weltweit größte Plattform zur Speicherung und gemeinsamen Entwicklung von Software. Stellen Sie sich GitHub wie eine riesige öffentliche Bibliothek vor, in der Entwickler:innen und Forscher:innen den Quellcode ihrer Programme (in sogenannten Repositories, also Projekt-Ordnern) kostenfrei zur Verfügung stellen.
+[GitHub](https://github.com/) ist die weltweit größte Plattform zur Speicherung und gemeinsamen Entwicklung von Software. Neben dem Quellcode liegen dort insbesondere auch Anleitungen, wie die Software installiert und verwendet werden kann.
 
 Der Name setzt sich aus zwei Teilen zusammen:
 * Git: Das ist das eigentliche, unsichtbare Werkzeug (ein "Versionskontrollsystem"), das jede kleine Änderung am Code dokumentiert – ähnlich wie die "Änderungen nachverfolgen"-Funktion in Word, nur für hunderte Dateien gleichzeitig.
 * Hub: Die zentrale Webseite, die diesen Code für alle Welt sichtbar und durchsuchbar macht.
 
-**Die README-Datei und der Standard-Ablauf**
+
+#### Standardinstallation
 Wenn Sie ein spannendes Projekt auf GitHub finden (z.B. ein Tool zur Datenbereinigung), scrollen Sie immer zuerst nach unten zur Datei `README.md`. Das ist die Bedienungsanleitung des Projekts. 
 
-Dank unseres Tutorials werden Ihnen die "Installation Instructions" in diesen README-Dateien nun plötzlich sehr vertraut vorkommen! Der Ablauf, um ein fremdes GitHub-Projekt bei sich lokal zum Laufen zu bringen, sieht fast immer exakt so aus:
+Im besten Fall sind die Projekte auf PyPI veröffentlicht und lassen sich einfach über pip installieren, dann lässt sich die Installationsanleitung häufig auf das Anlegen einer virtuellen Umgebung und die Installation des richtigen Pip Paketes herunterbrechen. 
+Die Fähigkeiten dafür haben wir oben bereits erlernt: mit der Installation von [Cowsay](https://github.com/piuccio/cowsay) oder [barplotme](https://github.com/mathiaszinnen/barplotme), deren Quellcode und Installationsanweisungen auch jeweils über GitHub zugänglich sind.
 
+#### Editierbare Installation 
+Wenn das nicht der Fall sein sollte, oder der Code geändert werden soll, muss das Projekt auf den eigenen Rechner kopiert ("geklont") werden, um es lokal zu installieren. 
+> Obacht! Für die folgenden Schritte ist eine Installation von Git nötig. Unter Linux und MacOS sollte Git vorinstalliert sein. Unter Windows können Sie der Installationsanleitung von [Git-for-Windows](https://git-scm.com/install/windows) folgen.
+Als Beispiel nehmen wir das Barplotme Paket. Angenommen wir wünschen uns ein aussagekräftigeres Label für unseren Barplot als "Fancy Bar Plot" (schwer vorstellbar, aber hypothetisch denkbar), dann können wir das Paket mit Folgenden Kommandos im Terminal lokal installieren.
 ```bash
-# 1. Den Code aus dem Internet auf den eigenen PC herunterladen
-git clone [https://github.com/nutzername/projektname.git](https://github.com/nutzername/projektname.git)
-
-# 2. In den neuen Projektordner navigieren
-cd projektname
-
-# 3. Eine virtuelle Umgebung erstellen
-python -m venv venv
-
-# 4. Die Umgebung aktivieren (hier z.B. für Mac/Linux)
-source venv/bin/activate
-
-# 5. Alle benötigten Pakete auf einen Schlag installieren!
-pip install -r requirements.txt
+git clone 
+cd 
+pip install -e .
 ```
-
-**Das Geheimnis der `requirements.txt`**
-Im letzten Schritt sehen Sie etwas Neues: `pip install -r requirements.txt`. 
-Entwickler:innen schreiben nicht auf, dass Sie `pip install pandas`, `pip install numpy` etc. einzeln tippen müssen. Stattdessen legen sie dem Projekt eine einfache Textdatei namens `requirements.txt` bei, in der alle Pakete (oft mit exakter Versionsnummer) aufgelistet sind. Der Befehl `-r` sagt Pip einfach: "Lies diese Datei und installiere alles, was darin steht, in meinen Blumentopf!"
-
-### Hugging Face: Das Zuhause der KI-Modelle
-
-Während GitHub der Ort für den Programmcode ist, hat sich in den letzten Jahren eine zweite Plattform etabliert, die besonders für maschinelles Lernen und Künstliche Intelligenz unverzichtbar ist: [Hugging Face](https://huggingface.co/).
-
-Man nennt Hugging Face oft das "GitHub für Machine Learning". 
-* Auf GitHub liegt der Code (die Anleitung, wie etwas berechnet wird).
-* Auf Hugging Face liegen die Modelle (die Parameter der Algorithmen, die Trainingsdaten gelernt haben, z.B. historische Schriften zu entziffern oder Objekte auf Bildern zu erkennen).
+Das `-e` Argument hinter `pip install` macht die Installation `editable`, was bedeutet, dass Änderungen des Quellcodes im Projektordner direkt in die virtuelle Umgebung übernommen werden. Das `.` übernimmt die Funktion des Paketnames und verweist auf den aktuellen Ordner, der anstelle eines von PyPI heruntergeladenen Pakets als installiert werden soll.
 
 
-### Quiz: Den Ablauf verstehen
+Nun können wir den Code anpassen, etwa indem wir die `plot.py` Datei im Unterordner `src` (für source - Quellcode) ändern: Wenn wir dort in Zeile 13 die Zeichenkette 'Fancy Bar Plot' ersetzen, wird dementsprechend ein anderer Titel generiert. 
+Probieren Sie es doch mal aus.
 
-**Sie finden auf GitHub ein tolles Projekt zur automatischen Verschlagwortung von Texten. In welcher Reihenfolge führen Sie die Schritte aus, um es sicher auf Ihrem PC zu testen?**
+![barplot](res/barplot.png "Von dem Paket barplotme generiertes Balkendiagramm mit sehr gutem Label")
 
-[( )] 1. Venv erstellen, 2. Code herunterladen, 3. Pakete global installieren.
-[( )] 1. Pakete installieren, 2. Code herunterladen, 3. Venv aktivieren.
-[(X)] 1. Code herunterladen, 2. Venv erstellen und aktivieren, 3. Pakete mit Pip installieren.
+### Linklisten und Softwareübersichten
+Aber woher bekomme ich nun die ganzen versprochenen Modelle? Auf GitHub liegen ja Millionen von Projekten, wie soll ich da den Überblick behalten?
+
+#### Zum Einstieg Awesome Lists
+![Awesome Logo](res/logo.svg "Awesome list of awesome lists logo, credit to Sindre Sorhus [awesome repository on GitHub](https://github.com/sindresorhus/awesome)" )
+Verzagen Sie nicht, es gibt kuratierte Listen für alle möglichen Anwendungen von Bildverarbeitung und Maschinellem Lernen. Weil es so großartig ist, dass sich Menschen um die Kuration dieser Listen kümmern, heißen sie "awesome". Wenn Sie etwa nach Techniken zur automatischen Texterkennung (OCR) suchen, suchen Sie doch einfach mal "awesome ocr" auf der Suchmaschine ihrer Wahl. 
+
+Zum Einstieg finden Sie hier eine massiv unvollständige Zusammenstellung von awesome Listen zu gängigen Themen in der Sammlungsdigitalisierung 
+
+| Thema | Link | 
+| --- | --- |
+| OCR | https://github.com/zacharywhitley/awesome-ocr |
+| Objekterkennung | https://github.com/XiongweiWu/Awesome-Object-Detection |
+| Sprachverarbeitung | https://github.com/keon/awesome-nlp |
+| LLMs | https://github.com/hannibal046/awesome-llm |
+
+Auf GitHub findet sich sogar eine [Awesome Liste aller Awesome Listen](https://github.com/sindresorhus/awesome), stöbern Sie doch einfach mal herum. 
+
+#### Für Experten: HuggingFace und andere Aggregatoren
+
+Die aktuellsten und stärksten Algorithmen finden sich inzwischen vor allem auf [HuggingFace](https://huggingface.co/). 
+Ein Klick auf Models zeigt Ihnen nach verschiedenen Anwendungen sortierte Algorithmen, die häufig mit Codebeispielen und Installationsanweisungen versehen sind. 
+Der Einstieg ist etwas komplizierter und setzt meist Python Grundkenntnisse voraus, aber es lohnt sich, sich in das System einzuarbeiten. 
+
+Speziell für die Bildverarbeitung empfehlen sich mit Microsofts [OpenMMLab](https://github.com/open-mmlab) Projekte. Allerdings ist die Einstiegshürde hier etwas höher als bei Huggingface. 
+Etwas einfacher ist die Verwendung von [Ultralytics YOLO](https://docs.ultralytics.com/), einem Framework für verschiedene Bilderkennungsaufgaben, aber insbesondere zur Objektdetektion.
+ 
+Wenden Sie sich vertrauensvoll an den SODa Helpdesk, wenn Sie Unterstützung benötigen -- wir helfen gerne!
+
+### Quiz: Open Source Projekte 
+
+Prüfen wir zum Abschluss, ob die Zusammenhänge zwischen den Plattformen, Werkzeugen und lokalen Installationen sitzen!
+
+**Frage 1: Was genau bewirkt der Punkt (`.`) im Befehl `pip install -e .` während einer editierbaren Installation?**
+
+[( )] Er zwingt Pip dazu, alle versteckten Dateien im Ordner mitzuinstallieren.
+[(X)] Er verweist auf das aktuelle Verzeichnis, welches anstelle eines regulären PyPI-Pakets installiert werden soll.
+[( )] Er steht für "everything" und installiert automatisch alle Pakete, die das Projekt benötigt.
+[( )] Er deaktiviert die Versionskontrolle von Git für diesen spezifischen Installationsvorgang.
+
+
+**Frage 2: Sie haben das Paket "barplotme" via `pip install -e .` installiert. Anschließend ändern Sie im Quellcode ein Text-Label ab. Was ist der nächste zwingende Schritt, damit das Python-Skript den neuen Titel ausgibt?**
+
+[( )] Sie müssen das Paket mit `pip uninstall` entfernen und danach neu installieren.
+[( )] Sie müssen den Befehl `pip install -e .` noch einmal ausführen, um die Änderung zu kompilieren.
+[(X)] Gar nichts. Da das Paket "editable" installiert wurde, wird die Änderung im Quellcode bei der nächsten Ausführung sofort wirksam.
+[( )] Sie müssen die Änderung zuerst mit Git bestätigen und ins Internet hochladen, bevor Pip sie erkennt.
+
+
+
+**Frage 3: Warum wird im Text explizit auf Alternativen wie GitLab oder Codeberg hingewiesen, obwohl sich GitHub als De-Facto-Standard etabliert hat?**
+
+[( )] Weil GitHub ausschließlich für proprietäre (geschlossene) Software genutzt werden darf.
+[(X)] Um Aspekte der Datenautonomie angesichts kommerzieller und politischer Entwicklungen zu betonen.
+[( )] Weil die Editierbare Installation auf GitHub technisch blockiert wird.
+[( )] Weil große KI-Modelle von HuggingFace nur über Codeberg heruntergeladen werden können.
+
+
+
+**Frage 4: Welche der folgenden Aussagen beschreibt das Verhältnis zwischen Git und GitHub am präzisesten?**
+
+[( )] Git ist die Programmiersprache, in der die Projekte geschrieben sind, und GitHub ist der Server, der sie ausführt.
+[( )] Git ist die zentrale Webseite für Open Source, während GitHub das Tool auf dem lokalen Rechner ist.
+[(X)] Git dokumentiert lokale Code-Änderungen als Versionskontrollsystem, GitHub macht diese Dateien global im Netz sichtbar und durchsuchbar.
+[( )] Beide Begriffe sind Synonyme für dasselbe Microsoft-Produkt zur Paketverwaltung.
+
+
+
+**Frage 5: Sie suchen nach bewährten Open-Source-Tools zur automatischen Spracherkennung. Was ist laut Text der effizienteste erste Suchansatz?**
+
+[(X)] Eine Suchmaschine nach Begriffen wie "awesome speech recognition" durchsuchen.
+[( )] Den Suchbegriff `pip install speech` auf gut Glück im Terminal eingeben.
+[( )] Die Datei `README.md` auf der Startseite von GitHub lesen.
+[( )] Den Quellcode von "cowsay" auf GitHub analysieren.
+
+
+
+**Frage 6: In welchem Fall ist eine "Editierbare Installation" (inkl. lokalem Klonen via Git) einer regulären Standardinstallation (direkt über Pip) zwingend vorzuziehen?**
+
+[( )] Wenn Sie sicherstellen wollen, dass keine schädliche Software installiert wird.
+[(X)] Wenn das Paket nicht auf PyPI verfügbar ist oder Sie die interne Funktionsweise des Codes selbst umschreiben möchten.
+[( )] Wenn Sie Speicherplatz auf Ihrer Festplatte sparen möchten.
+[( )] Wenn Sie das Paket in einer virtuellen Umgebung (Venv) nutzen wollen.
+
+
+**Frage 7: Welche wesentliche Neuerung brachte die Plattform "Hugging Face" in das Open-Source-Ökosystem, wodurch sie sich von klassischen Code-Repositories unterscheidet?**
+
+[( )] Sie erlaubt als erste Plattform das lokale Klonen von Projekten via Git.
+[(X)] Sie ist ein Hub speziell für maschinelles Lernen, auf dem neben dem Code vor allem die riesigen, fertig trainierten KI-Modelle ("Gehirne") gehostet werden.
+[( )] Sie bietet grafische Benutzeroberflächen an, sodass man für KI-Modelle keine Python-Kenntnisse mehr benötigt.
+[( )] Sie löst das PyPI-Register komplett ab und ist der neue Standard für alle Pip-Installationen.
+
+
+**Frage 8: Wie ordnet der Text die beiden Frameworks "OpenMMLab" und "Ultralytics YOLO" bezüglich ihrer Nutzungshürde für Bildverarbeitung ein?**
+
+[( )] OpenMMLab gilt als deutlich einfacher und ist speziell für absolute Programmieranfänger konzipiert.
+[( )] Beide Tools können komplett ohne Terminal bedient werden.
+[( )] YOLO ist ausschließlich für Textverarbeitung gedacht, während OpenMMLab Bilder verarbeitet.
+[(X)] OpenMMLab erfordert eine etwas höhere Einarbeitungszeit, während Ultralytics YOLO als einsteigerfreundlichere Alternative für Objektdetektion empfohlen wird.
+
+**Frage 9: Welche Voraussetzung muss auf einem Windows-Rechner zwingend erfüllt sein, bevor Sie den Befehl `git clone` erfolgreich nutzen können?**
+
+[( )] Sie müssen zuvor mit `pip install git` das Paket aus dem PyPI-Register laden.
+[(X)] Das eigenständige Werkzeug "Git" muss auf dem Betriebssystem vorab installiert sein (z.B. via Git-for-Windows).
+[( )] Sie müssen zwingend auf GitHub eingeloggt sein.
+[( )] Die virtuelle Umgebung (Venv) muss zwingend vorher aktiviert werden.
+
+
+**Frage 10: Ein Forschungstool ist offiziell über PyPI ("Standardinstallation") verfügbar. Was bedeutet dies konkret für Ihren Workflow?**
+
+[(X)] Sie sparen sich den manuellen Download via `git clone` und können das Tool direkt über einen einfachen Pip-Befehl in Ihr Venv laden.
+[( )] Sie müssen den Quellcode nach dem Klonen nicht mehr selbst kompilieren.
+[( )] Das Tool kann nicht in einer virtuellen Umgebung installiert werden, sondern erfordert Root-Rechte.
+[( )] Die `README.md` Datei fehlt bei diesen Projekten grundsätzlich.
 
 
 ## TLDR
