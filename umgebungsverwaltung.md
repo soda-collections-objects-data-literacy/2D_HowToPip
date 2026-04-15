@@ -4,7 +4,7 @@ author: Mathias Zinnen (FAU/SODa)
 
 comment: Einführung in die Umgebungsverwaltung mit Python und Pip
 date: 2026-03-16
-version: 0.0.1
+version: 0.0.2
 email: mathias.zinnen@fau.de
 
 
@@ -37,7 +37,8 @@ Lernziele:
 - [Umgang mit der Kommandozeile](#3)
 - [Installation einer Python Umgebung](#13)
 - [Umgebungsverwaltung mit Venv](#19)
-- [Paketmanagement mit Pip](#27)
+- [Paketmanagement mit Pip](#28)
+- [Überblick über Open Source Software](#33)
 
 Das Tutorial ist angelehnt an zwei SODa Präsenzworkshops: ["Python, GitHub, Pip & Co"](https://sammlungen.io/events/soda-workshop-python-github-pip-co) sowie die einführenden Teile des Workshops zur [Objekterkennung](https://sammlungen.io/events/workshop-automatisierte-objekterkennung-der-sammlungsarbeit). 
 Entsprechend der Zielsetzung des SODa Projekts stellen Sammlungsverantwortliche und mit Sammlungsdaten Forschende die primäre Zielgruppe dar, grundsätzlich kann das Tutorial aber natürlich von allen genutzt werden.
@@ -259,6 +260,8 @@ In diesem Tutorial haben wir nur an der Oberfläche der Kommandozeile gekratzt. 
 
 ## Python 
 
+![Python Logo](res/Python_logo_and_wordmark.svg.png "Logo der Programmiersprache Python, [Python Software Foundation](https://www.python.org/psf-landing/), lizenziert unter PSF License Agreement, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Python-logo-notext.svg).")
+
 Python ist aktuell eine der beliebtesten Programmiersprachen der Welt. Besonders in der Wissenschaft, den Digital Humanities und bei der Arbeit mit großen Datenmengen (wie Sammlungsdaten) hat sie sich als Standard etabliert. Zwei Eigenschaften machen Python für unseren Anwendungszweck besonders interessant:
 
 **1. Python ist eine interpretierte Sprache**
@@ -416,6 +419,8 @@ Dieses Tutorial konzentriert sich gezielt auf die Umgebungsverwaltung und das Au
 [( )] `brew list python`
 
 ## Umgebungsvirtualisierung
+
+![Symbolbild Umgebungsvirtualisierung](res/seedlings-planting-gardening-green-preview.jpg "Setzlinge in ihren Töpfen, jede in ihrem eigenen virtual environment. Von Unbekannt (via PickPik), lizenziert als [Royalty Free](https://pickpik.com.atlaq.com/) via [PickPik](https://www.pickpik.com/seedlings-planting-gardening-green-growing-spring-66900).")
 
 Bevor wir uns ansehen, wie wir Open-Source-Projekte lokal installieren, müssen wir ein zentrales Konzept verstehen: die Umgebung (Englisch: Environment). 
 
@@ -644,6 +649,8 @@ Wir beschränken uns hier dennoch ganz bewusst auf das leichtgewichtige, integri
 
 ## Paketmanagement mit Pip
 
+![PyPI Logo](res/PyPI_logo.svg.png "PyPI Logo. By [Python Packaging Authority / Python Software Foundation](https://pypi.org/static/images/logo-large.svg), GPL, via [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?curid=92009547).")
+
 Wir haben nun unseren isolierten "Blumentopf" (die virtuelle Umgebung) aufgestellt. Aber er ist noch leer. Er enthält bisher nur das absolute Minimum, nämlich den Python-Interpreter selbst. Wie bekommen wir nun die nützlichen Erweiterungen, die sogenannten Pakete (Packages), in unsere Umgebung?
 
 Hier kommt Pip ins Spiel.
@@ -747,6 +754,9 @@ pip install matplotlib
 
 ## Open Source Projekte 
 
+![Seed Repository](res/Svalbard_Global_Seed_Vault_February_2025.jpg "Repository (keine Software), von Michael Major for [Crop Trust](https://www.flickr.com/photos/croptrust/54368366423/), CC BY-SA 2.0,  via [Wikimedia commons](https://commons.wikimedia.org/w/index.php?curid=161435003).")
+
+
 Wir können nun in der Kommandozeile navigieren, Python-Interpreter steuern, sichere Umgebungen (Venvs) anlegen und Pakete mit Pip installieren. Aber wo finden wir nun die versprochenen Open Source Projekte, die wir bei uns selbst installieren können um uns das Leben zu erleichtern?
 
 Der Quellcode der Projekte selbst liegt meistens auf sogenannten Code Repositories. Von denen ist das von Microsoft betriebene GitHub das bekannteste, deswegen werden wir uns im Folgenden darauf konzentrieren. 
@@ -803,7 +813,7 @@ Zum Einstieg finden Sie hier eine massiv unvollständige Zusammenstellung von aw
 
 Auf GitHub findet sich sogar eine [Awesome Liste aller Awesome Listen](https://github.com/sindresorhus/awesome), stöbern Sie doch einfach mal herum. 
 
-#### Für Experten: HuggingFace und andere Aggregatoren
+#### Für Expert:innen: HuggingFace und andere Aggregatoren
 
 Die aktuellsten und stärksten Algorithmen finden sich inzwischen vor allem auf [HuggingFace](https://huggingface.co/). 
 Ein Klick auf Models zeigt Ihnen nach verschiedenen Anwendungen sortierte Algorithmen, die häufig mit Codebeispielen und Installationsanweisungen versehen sind. 
