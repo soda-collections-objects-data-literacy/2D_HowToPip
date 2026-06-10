@@ -330,6 +330,7 @@ Lassen Sie uns das direkt ausprobieren:
 1. Öffnen Sie ein einfaches Texteditor-Programm (z.B. den vorinstallierten *Editor* bzw. *Notepad* unter Windows oder *TextEdit* auf dem Mac). Bitte nutzen Sie hierfür kein Word, da dieses versteckte Formatierungen speichert!
 2. Tippen Sie exakt diese eine Zeile ein: 
    `print("Look ma, I can python!")`
+   Falls Sie die Zeile aus der Zwischenablage kopieren, achten Sie darauf dass keine versteckten Sonderzeichen übernommen werden. Wenn Sie ganz sicher gehen wollen, tippen Sie die Zeile ab. 
 3. Speichern Sie die Datei unter dem Namen `hello.py` in einem Ordner Ihrer Wahl (z.B. in einem neuen Ordner namens `Python_Test` in Ihren Dokumenten).
 4. Öffnen Sie Ihre Kommandozeile und navigieren Sie mit dem `cd`-Befehl (den wir vorhin kennengelernt haben) in genau diesen Ordner. Zur Erinnerung: Mit der `[Tab]`-Taste geht das viel schneller!
 5. Führen Sie das Skript nun aus. Tippen Sie dafür (je nach System):
