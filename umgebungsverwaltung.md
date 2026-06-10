@@ -808,7 +808,7 @@ Die Fähigkeiten dafür haben wir oben bereits erlernt: mit der Installation von
 #### Editierbare Installation 
 Wenn das nicht der Fall sein sollte, oder der Code geändert werden soll, muss das Projekt auf den eigenen Rechner kopiert ("geklont") werden, um es lokal zu installieren. 
 > Obacht! Für die folgenden Schritte ist eine Installation von Git nötig. Unter Linux und MacOS sollte Git vorinstalliert sein. Unter Windows können Sie der Installationsanleitung von [Git-for-Windows](https://git-scm.com/install/windows) folgen.
-Als Beispiel nehmen wir das Barplotme Paket. Angenommen wir wünschen uns ein aussagekräftigeres Label für unseren Barplot als "Fancy Bar Plot" (schwer vorstellbar, aber hypothetisch denkbar), dann können wir das Paket mit Folgenden Kommandos im Terminal lokal installieren.
+Als Beispiel nehmen wir das Barplotme Paket. Angenommen wir wünschen uns ein aussagekräftigeres Label für unseren Barplot als "Fancy Bar Plot" (schwer vorstellbar, aber hypothetisch denkbar), dann können wir das Paket mit folgenden Kommandos im Terminal lokal installieren.
 ```bash
 git clone git@github.com:mathiaszinnen/barplotme.git
 cd barplotme
