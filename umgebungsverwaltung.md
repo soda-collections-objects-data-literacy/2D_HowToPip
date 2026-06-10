@@ -114,11 +114,13 @@ Dieser "Raum" wird als Current Working Directory (CWD), also das aktuelle Arbeit
 Um sich durch die Verzeichnisse zu bewegen, müssen Sie dem System den Weg beschreiben. Das tun wir über sogenannte Pfade, die entweder relativ oder absolut sein können.
 
 **1. Absolute Pfade (Die vollständige Adresse)**
+
 Ein absoluter Pfad ist wie eine exakte postalische Anschrift. Er beginnt immer ganz oben an der Wurzel Ihres Dateisystems (z.B. bei `C:\ ` unter Windows oder `/` bei MacOS/Linux) und beschreibt den exakten Weg bis zur Zieldatei. Ein absoluter Pfad zeigt immer auf den gleichen Ort in ihrem Dateisystem, egal in welchem CWD Sie sich gerade befinden.
 * Beispiel Windows: `C:\Benutzer\Name\Dokumente\Projekt`
 * Beispiel Mac/Linux: `/Users/Name/Documents/Projekt`
 
 **2. Relative Pfade (Die Wegbeschreibung von Ihrem Standort aus)**
+
 Ein relativer Pfad ist wie die Anweisung "Gehe den Gang hinunter und nimm die zweite Tür links". Er geht immer von Ihrem aktuellen Arbeitsverzeichnis (CWD) aus.
 * Wenn Sie im Ordner `Dokumente` sind und in den Unterordner `Projekt` möchten, reicht der relative Pfad: `Projekt` (oder `./Projekt`).
 * Um einen Ordner nach oben zu gehen (quasi den aktuellen Raum zu verlassen und auf den Flur zu treten), nutzt man in der Kommandozeile immer zwei Punkte: `..`
@@ -128,7 +130,7 @@ Ein relativer Pfad ist wie die Anweisung "Gehe den Gang hinunter und nimm die zw
 Probieren Sie doch direkt einmal in Ihrer geöffneten Kommandozeile aus, sich umzusehen:
 
 * **Wo bin ich?** Geben Sie `pwd` (Mac/Linux) oder `Get-Location` (Windows PowerShell) ein und drücken Sie Enter. Das System zeigt Ihnen Ihr aktuelles CWD an.
-* **Was ist hier?**
+* **Was ist hier?** 
   Geben Sie `ls` ein und drücken Sie Enter. Das listet alle Dateien und Unterordner an Ihrem aktuellen Standort auf.
 * **Wie wechsle ich den Raum?**
   Nutzen Sie den Befehl `cd` (change directory) gefolgt von einem Leerzeichen und dem Pfad. Zum Beispiel `cd Dokumente` (um in den Ordner Dokumente zu wechseln) oder `cd ..` (um einen Ordner nach oben zu gehen).
@@ -168,11 +170,13 @@ Sobald der gewünschte alte Befehl auf dem Bildschirm erscheint, können Sie ihn
 Neben der reinen Navigation können Sie über die Kommandozeile natürlich auch Ihre Ordnerstruktur bearbeiten. Für unsere späteren Übungen ist es wichtig, dass Sie wissen, wie man neue "Räume" (Ordner) erschafft und wieder abreißt.
 
 **1. Einen neuen Ordner anlegen (`mkdir`)**
+
 Um in Ihrem aktuellen Arbeitsverzeichnis einen neuen Ordner zu erstellen, nutzen Sie den Befehl `mkdir` (steht für make directory), gefolgt von einem Leerzeichen und dem gewünschten Namen.
 * Beispiel: `mkdir Projekt_Umgebungsverwaltung`
 * Wenn Sie danach `ls` eingeben, werden Sie sehen, dass der neue Ordner aufgetaucht ist.
 
 **2. Einen Ordner löschen (`rm`)**
+
 Um Dateien oder ganze Ordner zu löschen, wird der Befehl `rm` (remove) verwendet. Da ein Ordner weitere Dateien enthalten kann, müssen wir der Kommandozeile sagen, dass sie den Ordner und seinen gesamten Inhalt (rekursiv) löschen soll. Dafür hängen wir ein `-r` an den Befehl an.
 * Beispiel: `rm -r Projekt_Umgebungsverwaltung`
 * **Achtung:** Wenn Sie Dateien oder Ordner über die Kommandozeile löschen, landen diese in der Regel nicht im Papierkorb, sondern verschwinden sofort unwiderruflich! Nutzen Sie diesen Befehl also mit Vorsicht.
@@ -265,12 +269,14 @@ In diesem Tutorial haben wir nur an der Oberfläche der Kommandozeile gekratzt. 
 Python ist aktuell eine der beliebtesten Programmiersprachen der Welt. Besonders in der Wissenschaft, den Digital Humanities und bei der Arbeit mit großen Datenmengen (wie Sammlungsdaten) hat sie sich als Standard etabliert. Zwei Eigenschaften machen Python für unseren Anwendungszweck besonders interessant:
 
 **1. Python ist eine interpretierte Sprache**
+
 Bei vielen traditionellen Programmiersprachen (wie C++) wird der von Menschen geschriebene Code erst in ein fertiges, maschinenlesbares Programm übersetzt (kompiliert), bevor man es ausführen kann. Die fertige Datei (z.B. eine `.exe`) bringt dann alles mit, was sie zum Laufen braucht. 
 
 Python funktioniert anders: Es ist eine interpretierte Sprache. Das bedeutet, der Programmcode bleibt als lesbarer Text erhalten. Er wird erst in dem Moment, in dem wir ihn starten, Zeile für Zeile von einem sogenannten Interpreter gelesen und direkt ausgeführt. 
 Warum ist das wichtig? Weil ein Python-Skript (der Text) nicht für sich alleine lauffähig ist. Es bringt keinen eigenen Übersetzer mit. Um ein Python-Projekt von GitHub auf Ihrem Computer auszuführen, müssen wir also sicherstellen, dass auf unserem System der richtige Interpreter bereitsteht. Genau das macht das Thema Umgebungsverwaltung später so wichtig.
 
 **2. Ein gigantisches Ökosystem an Paketen**
+
 Niemand muss das Rad neu erfinden. Die weltweite Python-Community hat für fast jedes erdenkliche Problem bereits fertige Bausteine geschrieben, sogenannte Bibliotheken (Libraries) oder Pakete (Packages). Ob Sie Texte maschinell auswerten, automatische Objekterkennung in Bildern nutzen oder Metadaten aus Tabellen auslesen wollen: Es gibt dafür zehntausende vorgefertigte Pakete, die wir einfach in unser Projekt laden können. 
 
 ### Installation
@@ -435,9 +441,11 @@ Bevor wir uns ansehen, wie wir Open-Source-Projekte lokal installieren, müssen 
 Was genau ist damit gemeint? Ähnlich wie eine Pflanze die richtige Erde, Temperatur und Luftfeuchtigkeit braucht, um zu wachsen, benötigt ein Softwareprogramm bestimmte Bedingungen, um fehlerfrei zu laufen. Diese Rahmenbedingungen nennen wir die Ausführungsumgebung.
 
 **Das Betriebssystem als Umgebung für kompilierte Programme**
+
 Bei klassischen, kompilierten Programmen (wie Ihrem Webbrowser oder einem Textverarbeitungsprogramm wie Microsoft Word) stellt das Betriebssystem (Windows, macOS, Linux) die Umgebung zur Verfügung. Das Programm kommuniziert direkt mit dem Betriebssystem, über sogenannte System Calls, um beispielsweise Speicherplatz anzufordern oder ein Fenster auf dem Bildschirm zu zeichnen. Das Programm bringt in der Regel alles andere, was es braucht, bereits in seinem Installationsordner mit.
 
 **Python als Umgebung für Python-Skripte**
+
 Für Python-Skripte reicht das Betriebssystem allein nicht aus. Wie wir im vorherigen Kapitel gelernt haben, bestehen Python-Programme nur aus für Menschen lesbarem Text. Die "Umgebung" für ein Python-Skript ist daher komplexer und besteht aus mehreren Schichten:
 * Ganz unten liegt das Betriebssystem.
 * Darauf liegt der Python-Interpreter (die sogenannte Python Runtime), der den Text liest und übersetzt.
@@ -448,12 +456,15 @@ Für Python-Skripte reicht das Betriebssystem allein nicht aus. Wie wir im vorhe
 Wenn wir nun anfangen, verschiedene Projekte von Plattformen wie GitHub herunterzuladen und auszuprobieren, stoßen wir sehr schnell auf drei große Herausforderungen:
 
 **Versionsabhängigkeiten (Python-Version)**
+
 Python entwickelt sich ständig weiter. Ein Skript, das 2020 geschrieben wurde, benötigt vielleicht exakt Python 3.8, weil bestimmte Befehle in der neueren Version 3.12 abgeschafft oder verändert wurden. 
 
 **Paketabhängigkeiten (Dependencies)**
+
 Fast kein modernes Skript kommt ohne externe Pakete aus. Ein Projekt zur Texterkennung braucht vielleicht die Pakete `numpy` und `spacy`. Diese müssen auf Ihrem Computer installiert sein, sonst bricht das Skript beim Start sofort mit einer Fehlermeldung ab.
 
 **Versionskonflikte**
+
 Hier liegt das größte Problem: Stellen Sie sich vor, Sie haben ein Projekt zur automatischen Bilderkennung für Ihre Sammlung heruntergeladen. Dieses Projekt benötigt das Paket `pandas` in der Version 1.0. 
 Ein halbes Jahr später laden Sie ein brandneues Projekt zur Textanalyse herunter. Dieses verlangt zwingend `pandas` in der Version 2.0. 
 
@@ -552,7 +563,7 @@ Um ein Venv mit einer bestimmten Version zu erstellen, rufen Sie einfach exakt d
 
 * **Windows:** `py -3.9 -m venv venv3` (ersetzen Sie 3.9 durch Ihre installierte Version)
 * **Linux:** `python3.9 -m venv venv3` 
-* **Mac** Aktivieren Sie die gewünschte Version mit pyenv, z.B. `pyenv shell 3.9` und erstellen Sie dann die Umgebung mit `python3 -m venv venv3`. Der `python3` Befehl verweist durch die vorherige pyenv Konfiguration auf die richtige Version.  
+* **Mac:** Aktivieren Sie die gewünschte Version mit pyenv, z.B. `pyenv shell 3.9` und erstellen Sie dann die Umgebung mit `python3 -m venv venv3`. Der `python3` Befehl verweist durch die vorherige pyenv Konfiguration auf die richtige Version.  
 
 Aktivieren Sie nun Ihr neues `venv3` (denken Sie daran: bei Windows wieder über `.\venv3\Scripts\Activate.ps1`, bei Mac/Linux über `source venv3/bin/activate`).
 
@@ -569,16 +580,19 @@ Sie haben `venv3` erfolgreich aktiviert (das `(venv3)` steht vorne in der Zeile)
 `venv` ist der Standardweg, der für 95 % der Anwendungsfälle in den Digital Humanities und der Datenarbeit völlig ausreicht. Sie werden in freier Wildbahn (vor allem in Forschungs-Papers oder auf GitHub) aber häufig auch über andere Begriffe stolpern, die wir hier kurz einordnen wollen:
 
 **Conda (Anaconda / Miniconda)**
+
 Conda ist ein alternativer, sehr mächtiger Paket- und Umgebungsmanager, der besonders in der Data-Science-Welt beliebt ist.
 * Der Unterschied: Während `venv` nur Python-Pakete verwaltet, kann Conda auch systemnahe Bibliotheken (die z.B. in C oder C++ geschrieben sind) mitbringen. Außerdem kann Conda die Python-Basisversionen selbst herunterladen und verwalten. 
 * Der Nachteil: Es ist deutlich "schwerfälliger" als `venv`, greift tiefer ins Betriebssystem ein und verlangt für die kommerzielle Nutzung (je nach Version) teils Lizenzen.
 
 **Docker**
+
 Docker spielt in einer ganz anderen Liga. Es virtualisiert nicht nur die Python-Umgebung, sondern gleich ein komplettes, minimales Betriebssystem in einem sogenannten "Container".
 * Der Unterschied: Ein Docker-Container bringt vom simulierten Linux-System über Python bis hin zu den Paketen alles mit. Wenn ein Projekt in Docker läuft, läuft es theoretisch auf jedem Computer der Welt absolut identisch (selbst hier bestätigen Ausnahmen die Regel, siehe etwa die Einbindung von Grafikkarten in die Container).
 * Der Nachteil: Docker ist für Anfänger deutlich komplexer zu erlernen, benötigt Zusatzsoftware und verbraucht mehr Speicherplatz und Arbeitsspeicher. 
 
 **Weitere Tools (Poetry, uv, etc.)**
+
 Daneben existiert eine Vielzahl an weiteren Tools zur Umgebungsvirtualisierung und zum Paketmanagement. Beliebt sind aktuell besonders [Poetry](https://python-poetry.org/) und das sehr schnelle [uv](https://docs.astral.sh/uv/), die das Management von Paket- und Versionsabhängigkeiten oft noch weiter von der reinen Dateisystem-Ebene abstrahieren. 
 
 Wir beschränken uns hier dennoch ganz bewusst auf das leichtgewichtige, integrierte `venv`. Einerseits, weil keine weitere Software installiert werden muss und es im Regelfall völlig ausreicht. Andererseits, weil gerade im händischen Umgang mit `venv` die grundlegenden Zusammenhänge zwischen Programmumgebung, Dateisystem und Betriebssystem für Einsteiger:innen besonders gut klar und greifbar werden.
@@ -676,9 +690,11 @@ Wenn Ihre virtuelle Umgebung aktiviert ist (Sie erinnern sich: das `(venv1)` ste
 Lassen Sie uns das direkt in der Praxis testen. Wir installieren ein Paket namens `cowsay` (eine sprechende Kuh), um den Prozess zu veranschaulichen.
 
 **Schritt 1: Umgebung sicherstellen**
+
 Stellen Sie sicher, dass Sie sich in Ihrer Kommandozeile in Ihrem Übungsordner `SODA_Umgebungsverwaltung` befinden und Ihr `venv1` aktiviert ist (das `(venv1)` muss sichtbar sein!). Falls nicht, aktivieren Sie es wieder (z.B. mit `source venv1/bin/activate` auf Mac/Linux oder `.\venv1\Scripts\Activate.ps1` unter Windows).
 
 **Schritt 2: Das Paket installieren**
+
 Geben Sie nun folgenden Befehl ein und drücken Sie Enter:
 ```bash
 pip install cowsay
@@ -686,6 +702,7 @@ pip install cowsay
 Sie werden sehen, wie sich Ihre Kommandozeile kurz mit dem Internet verbindet, einige Ladebalken anzeigt und am Ende idealerweise "Successfully installed cowsay..." meldet. 
 
 **Schritt 3: Den Inhalt der Umgebung prüfen (`pip list`)**
+
 Woher wissen wir, was alles in unserem aktuellen "Blumentopf" steckt? Dafür gibt es einen sehr nützlichen Befehl, den Sie im Alltag oft brauchen werden. Geben Sie ein:
 ```bash
 pip list
@@ -693,6 +710,7 @@ pip list
 Pip listet Ihnen nun tabellarisch alle installierten Pakete in dieser Umgebung auf. Sie sollten dort die Grundausstattung (wie `pip` selbst) und nun eben auch `cowsay` samt Versionsnummer sehen.
 
 **Schritt 4: Das Paket nutzen**
+
 Da das Paket nun in unserer Umgebung lebt, kann unser Python-Interpreter darauf zugreifen. Wir können die sprechende Kuh sogar direkt über die Kommandozeile aufrufen (da dieses spezielle Paket einen eigenen Kommandozeilenbefehl mitbringt). Tippen Sie:
 ```bash
 cowsay -t "Hallo aus dem SODa Tutorial!"
@@ -792,12 +810,14 @@ Wenn das nicht der Fall sein sollte, oder der Code geändert werden soll, muss d
 > Obacht! Für die folgenden Schritte ist eine Installation von Git nötig. Unter Linux und MacOS sollte Git vorinstalliert sein. Unter Windows können Sie der Installationsanleitung von [Git-for-Windows](https://git-scm.com/install/windows) folgen.
 Als Beispiel nehmen wir das Barplotme Paket. Angenommen wir wünschen uns ein aussagekräftigeres Label für unseren Barplot als "Fancy Bar Plot" (schwer vorstellbar, aber hypothetisch denkbar), dann können wir das Paket mit Folgenden Kommandos im Terminal lokal installieren.
 ```bash
-git clone 
-cd 
+git clone git@github.com:mathiaszinnen/barplotme.git
+cd barplotme
 pip install -e .
 ```
-Das `-e` Argument hinter `pip install` macht die Installation `editable`, was bedeutet, dass Änderungen des Quellcodes im Projektordner direkt in die virtuelle Umgebung übernommen werden. Das `.` übernimmt die Funktion des Paketnames und verweist auf den aktuellen Ordner, der anstelle eines von PyPI heruntergeladenen Pakets als installiert werden soll.
-
+Lassen Sie uns die Anweisungen nach und nach durchgehen und erklären:
+1. `git clone` kopiert das unter der nachfolgenden URL erreichbare Paket in einen lokalen Ordner der dem Repositorynamen (barplotme) entspricht.
+2. `cd barplotme` kennen Sie bereits aus der Terminal Einführung. Hiermit wechseln Sie in das eben erzeugte Verzeichnis, in dem sich der Quellcode des Pakets befindet.
+3. `pip install -e .` (nicht den Punkt vergessen!) installiert das im aktuellen Arbeitsverzeichnis (CWD, `.`) befindliche pip Paket lokal, dadurch wird es in der aktuellen Python Umgebung ausführbar. Das `-e` Argument hinter `pip install` macht die Installation `editable`, was bedeutet, dass Änderungen des Quellcodes im Projektordner direkt in die virtuelle Umgebung übernommen werden. Das `.` übernimmt die Funktion des Paketnames und verweist auf den aktuellen Ordner, der anstelle eines von PyPI heruntergeladenen Pakets als installiert werden soll.
 
 Nun können wir den Code anpassen, etwa indem wir die `plot.py` Datei im Unterordner `src` (für source - Quellcode) ändern: Wenn wir dort in Zeile 13 die Zeichenkette 'Fancy Bar Plot' ersetzen, wird dementsprechend ein anderer Titel generiert. 
 Probieren Sie es doch mal aus.
