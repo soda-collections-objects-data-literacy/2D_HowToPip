@@ -291,6 +291,7 @@ Damit unser Computer Python-Code interpretieren kann, müssen wir Python zunäch
 > 2. Falls Sie Homebrew (einen beliebten Paketmanager für Mac) noch nicht installiert haben, folgen Sie kurz den Anweisungen auf [brew.sh](https://brew.sh/).
 > 3. Wir nutzen das Tool `pyenv` zur Verwaltung der Versionen. Geben Sie ein: `brew install pyenv` und drücken Sie Enter.
 > 4. Installieren Sie nun Python (z.B. Version 3.11) mit dem Befehl: `pyenv install 3.11`
+> 5. Eine detaillierte Anleitung zur Nutzung von pyenv findet sich auf der [GitHub Seite](https://github.com/pyenv/pyenv#usage) des Projektes.
 </details>
 
 <details>
@@ -333,6 +334,11 @@ Lassen Sie uns das direkt ausprobieren:
 4. Öffnen Sie Ihre Kommandozeile und navigieren Sie mit dem `cd`-Befehl (den wir vorhin kennengelernt haben) in genau diesen Ordner. Zur Erinnerung: Mit der `[Tab]`-Taste geht das viel schneller!
 5. Führen Sie das Skript nun aus. Tippen Sie dafür (je nach System):
    `python hello.py` (oder `python3 hello.py` bzw. `py hello.py`) und drücken Sie Enter.
+
+> ⚠️ Unter MacOS sollten Sie darauf achten, die Datei als plain text zu speichern, anderenfalls wird manchmal eine Fehlermeldung geworfen, siehe [StackOverflow](https://stackoverflow.com/questions/23669037/error-on-rtf1-ansi-when-compiling-c-program). Dazu wählen Sie in Ihrem Texteditor den Reiter Format und klicken auf "In reinen Text umwandeln".
+
+> ⚠️ Unter MacOS führt manchmal das Fehlen des lzma Paketes zu Problemen. Auftauchende Fehlermeldungen können Sie durch die Installation der Bibliotheken readline und xz beheben: `brew install readline xz`. Siehe [StackOverflow](https://stackoverflow.com/questions/76028283/missing-the-lzma-lib) für weitere Informationen.
+
 
 Wenn alles geklappt hat, liest der Interpreter nun Ihre Datei und gibt den Text `Look ma, I can python!` direkt in Ihrer Kommandozeile aus. Herzlichen Glückwunsch zu Ihrem ersten laufenden Python-Skript!
 
@@ -543,7 +549,8 @@ Wie in der Einführung gelernt, erfordern manche Projekte ältere oder spezifisc
 Um ein Venv mit einer bestimmten Version zu erstellen, rufen Sie einfach exakt diese Version auf, um den `venv`-Befehl auszuführen:
 
 * **Windows:** `py -3.9 -m venv venv3` (ersetzen Sie 3.9 durch Ihre installierte Version)
-* **Mac/Linux:** `python3.9 -m venv venv3` 
+* **Linux:** `python3.9 -m venv venv3` 
+* **Mac** Aktivieren Sie die gewünschte Version mit pyenv, z.B. `pyenv shell 3.9` und erstellen Sie dann die Umgebung mit `python3 -m venv venv3`. Der `python3` Befehl verweist durch die vorherige pyenv Konfiguration auf die richtige Version.  
 
 Aktivieren Sie nun Ihr neues `venv3` (denken Sie daran: bei Windows wieder über `.\venv3\Scripts\Activate.ps1`, bei Mac/Linux über `source venv3/bin/activate`).
 
