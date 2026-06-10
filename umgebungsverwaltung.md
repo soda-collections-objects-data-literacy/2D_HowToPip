@@ -52,7 +52,7 @@ Warum sollte ich mir überhaupt die Mühe machen, mich in die Kommandozeile und 
 Es kommt darauf an, was man erreichen möchte. 
 
 Um ein erstes Verständnis für Machine-Learning und Data Science Inhalte zu entwickeln, reicht es tatsächlich häufig aus, online verfügbare Notebooks durchzuarbeiten, ohne den notwendigen Code auf dem eigenen System ausführbar machen zu müssen. 
-Ein gutes Beispiel dafür sind etwa die Online Workshops unserer Kolleg:innenen von [WiNoDa](https://winoda.de/), die ihre tollen Kurse und Workshop auf [YouTube](https://www.youtube.com/@WiNoDaKnowledgeLab) und häufig mit vorbereiteten Google Colab Notebooks unterstützen, so dass die Teilnehmer:innen die Lerninhalte direkt interaktiv ausprobieren können. 
+Ein gutes Beispiel dafür sind etwa die Online Workshops unserer Kolleg:innen von [WiNoDa](https://winoda.de/), die ihre tollen Kurse und Workshop auf [YouTube](https://www.youtube.com/@WiNoDaKnowledgeLab) und häufig mit vorbereiteten Google Colab Notebooks unterstützen, so dass die Teilnehmer:innen die Lerninhalte direkt interaktiv ausprobieren können. 
 Daneben kann zum Beispiel auch der momentan noch im Aufbau befindliche SODa Semantic Coworking Space verwendet werden, um Python auszuprobieren und programmatisch auf eigene WissKI Instanzen zugreifen zu können.
 
 Hier verfolgen wir bewusst einen anderen Ansatz: Wer lernt, grundlegend mit der Kommandozeile umzugehen, sich mit der Umgebungsverwaltung und dem Paketmanagement grundsätzlich vertraut macht und vor allem lernt, das Ganze auf dem **eigenen** System einzurichten, gewinnt volle Autonomie über die eigenen Daten und digitalen Fähigkeiten. 
@@ -62,7 +62,7 @@ Klar ist aber auch: Manchmal ist es einfach nicht möglich, die dafür nötige Z
 
 Aufbauend auf diesem Tutorial planen wir weitere Vertiefungsmodule, in denen Beispielprojekte lokal installiert und genutzt werden, etwa zur Objekterkennung mit YOLO, Textverarbeitung mit SpaCy, oder Texterkennung mit EasyOCR. 
 Sobald es konkret wird unterscheiden sich die nötigen Schritte je nach Betriebssystem. Einfach das Kontextmenü für das jeweilige Betriebssystem ausklappen. 
-Die pro Einheit erlernten Befehle sind jeweils noch einmal im Kapitel [TLDR](#35) kurz zusammengefasst. 
+Die pro Einheit erlernten Befehle sind jeweils noch einmal im Kapitel [TLDR](#41) kurz zusammengefasst. 
 
 ## Kommandozeile
 
@@ -114,7 +114,7 @@ Dieser "Raum" wird als Current Working Directory (CWD), also das aktuelle Arbeit
 Um sich durch die Verzeichnisse zu bewegen, müssen Sie dem System den Weg beschreiben. Das tun wir über sogenannte Pfade, die entweder relativ oder absolut sein können.
 
 **1. Absolute Pfade (Die vollständige Adresse)**
-Ein absoluter Pfad ist wie eine exakte postalische Anschrift. Er beginnt immer ganz oben an der Wurzel Ihres Dateisystems (z.B. bei `C:\ ` unter Windows oder `/` bei MacOS/Linux) und beschreibt den exakten Weg bis zur Zieldatei. Ein absoluter Pfad funktioniert zeigt immer auf den gleichen Ort in ihrem Dateisystem, egal in welchem CWD Sie sich gerade befinden.
+Ein absoluter Pfad ist wie eine exakte postalische Anschrift. Er beginnt immer ganz oben an der Wurzel Ihres Dateisystems (z.B. bei `C:\ ` unter Windows oder `/` bei MacOS/Linux) und beschreibt den exakten Weg bis zur Zieldatei. Ein absoluter Pfad zeigt immer auf den gleichen Ort in ihrem Dateisystem, egal in welchem CWD Sie sich gerade befinden.
 * Beispiel Windows: `C:\Benutzer\Name\Dokumente\Projekt`
 * Beispiel Mac/Linux: `/Users/Name/Documents/Projekt`
 
@@ -140,8 +140,8 @@ Zum Glück gibt es einfache Tricks, die Ihnen nicht nur den Großteil der Tippar
 
 #### Tab-Vervollständigung (Tab Completion)
 
-Obwohl die Kommandozeile textbasiert ist, müssen sie bei weitem nicht alles selbst tippen. 
-Hier kommt Ihr neuer bester Freund ins Spiel: Die Tabulatortaste (kurz Tab, befindet sich auf der Tastatur meist ganz links neben dem 'Q' und hat zwei entgegengesetzte Pfeile).
+Obwohl die Kommandozeile textbasiert ist, müssen Sie bei weitem nicht alles selbst tippen. 
+Hier kommt Ihr neuer bester Freund ins Spiel: Die Tabulatortaste (kurz Tab, befindet sich auf der Tastatur meist ganz links neben dem 'Q' und hat zwei entgegengesetzte Pfeile, bei Mac einen Pfeil nach rechts).
 
 Wenn Sie anfangen, einen Ordner- oder Dateinamen einzutippen, und dann die Tab-Taste drücken, versucht die Kommandozeile, den Namen automatisch zu Ende zu schreiben. 
 
@@ -385,7 +385,8 @@ Unter Linux nutzen wir einfach wieder den Paketmanager, um eine spezifische Vers
 Dieses Tutorial konzentriert sich gezielt auf die Umgebungsverwaltung und das Ausführen fremder Open-Source-Projekte. Wenn Sie auf den Geschmack gekommen sind und die Programmiersprache Python selbst von Grund auf lernen möchten, um eigene Skripte für Ihre Sammlungsdaten zu schreiben, empfehlen wir folgende kostenfreie Ressourcen:
 
 * **[The Programming Historian](https://programminghistorian.org/en/lessons/?topic=python):** Exzellente, praxisnahe Tutorials, die speziell für Geistes- und Kulturwissenschaftler:innen sowie Archivar:innen geschrieben wurden (viele davon auch auf [Deutsch](https://programminghistorian.org/de/lernen/?topic=python) verfügbar).
-* **[Offizielles Python-Tutorial](https://docs.python.org/de/3/tutorial/index.html):** Die offizielle Dokumentation ist mittlerweile sehr gut ins Deutsche übersetzt und bietet einen soliden Rundumschlag.
+* **[Tutorial von Digital History Berlin](https://digital-history-berlin.github.io/Python-fuer-Historiker-innen/home.html):** Die von der Professur für Digital History der HU Berlin entwickelte Python Einführung bietet einen barrierearmem  deutssprachigen Einstieg in die Grundlagen von Python. 
+* **[Offizielles Python-Tutorial](https://docs.python.org/3/tutorial/index.html):** Die offizielle Dokumentation ist mittlerweile bietet eine detaillierte Einführung mit eher technischem Fokus.
 * **[W3Schools Python Tutorial](https://www.w3schools.com/python/):** Eine sehr einsteigerfreundliche, englischsprachige Seite, bei der Sie viele Konzepte direkt im Browser ausprobieren können.
 
 ### Quiz: Python 
@@ -491,7 +492,7 @@ Lassen Sie uns unsere erste Umgebung namens `venv1` erstellen. Tippen Sie dafür
 * Windows: `python -m venv venv1` (oder `py -m venv venv1`)
 * Mac/Linux: `python3 -m venv venv1`
 
-Wenn Sie nun `ls`, sehen Sie, dass ein neuer Ordner namens `venv1` aufgetaucht ist. 
+Wenn Sie nun `ls` eingeben, sehen Sie, dass ein neuer Ordner namens `venv1` aufgetaucht ist. 
 Die Umgebung existiert jetzt, aber sie ist noch nicht aktiv. Wir müssen unserem System erst explizit sagen: "Für alle Python befehle, die jetzt kommen, verwende die in diesem Ordner bereitgestellte Python Umgebung und ignoriere den Rest".
 
 Klappen Sie die Anleitung für Ihr System auf und aktivieren Sie `venv1`:
@@ -657,7 +658,7 @@ Wir beschränken uns hier dennoch ganz bewusst auf das leichtgewichtige, integri
 
 ## Paketmanagement mit Pip
 
-![PyPI Logo](res/PyPI_logo.svg.png "PyPI Logo. By [Python Packaging Authority / Python Software Foundation](https://pypi.org/static/images/logo-large.svg), GPL, via [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?curid=92009547).")
+![PyPI Logo](res/PyPI_logo.svg.png "PyPI Logo. By [Python Packaging Authority / Python Software Foundation](https://pypi.org), GPL, via [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?curid=92009547).")
 
 Wir haben nun unseren isolierten "Blumentopf" (die virtuelle Umgebung) aufgestellt. Aber er ist noch leer. Er enthält bisher nur das absolute Minimum, nämlich den Python-Interpreter selbst. Wie bekommen wir nun die nützlichen Erweiterungen, die sogenannten Pakete (Packages), in unsere Umgebung?
 
