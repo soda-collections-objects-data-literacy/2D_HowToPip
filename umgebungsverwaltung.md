@@ -686,7 +686,7 @@ Pip listet Ihnen nun tabellarisch alle installierten Pakete in dieser Umgebung a
 **Schritt 4: Das Paket nutzen**
 Da das Paket nun in unserer Umgebung lebt, kann unser Python-Interpreter darauf zugreifen. Wir können die sprechende Kuh sogar direkt über die Kommandozeile aufrufen (da dieses spezielle Paket einen eigenen Kommandozeilenbefehl mitbringt). Tippen Sie:
 ```bash
-cowsay "Hallo aus dem SODa Tutorial!"
+cowsay -t "Hallo aus dem SODa Tutorial!"
 ```
 Wenn alles geklappt hat, grüßt Sie nun eine kleine Kuh aus ASCII-Zeichen direkt im Terminal!
 
