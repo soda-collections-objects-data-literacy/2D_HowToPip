@@ -1,0 +1,15 @@
+{
+  "title": "Einführung in die Umgebungsverwaltung mit Python und Pip",
+  "description": "Eine Einführung in die Verwaltung von Python-Umgebungen mit Pip.",
+  "upload_type": "lesson",
+  "creators": [
+    {
+      "name": "Zinnen, Mathias",
+      "affiliation": "Pattern Recognition Lab, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+      "orcid": "0000-0003-4366-5216"
+    }
+  ],
+  "version": "1.0.0",
+  "license": "cc-by-4.0",
+  "keywords": ["OER", "LiaScript"]
+}
