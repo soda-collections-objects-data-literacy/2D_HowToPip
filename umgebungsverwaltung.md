@@ -4,7 +4,7 @@ author: Mathias Zinnen (FAU/SODa)
 
 comment: Einführung in die Umgebungsverwaltung mit Python und Pip
 date: 2026-03-16
-version: 0.0.2
+version: 1.0.0
 email: mathias.zinnen@fau.de
 
 
