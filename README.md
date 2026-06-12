@@ -4,6 +4,8 @@ Dieses Repository enthält den Quelltext für eine LiaScript-basierte OER zur Er
 Die OER selbst kann über den LiaScript-Renderer angezeigt werden:
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/soda-collections-objects-data-literacy/2D_HowToPip/refs/heads/main/umgebungsverwaltung.md)
 
+Archiviert auf [Zenodo](https://doi.org/10.5281/zenodo.20665558)
+
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
 
