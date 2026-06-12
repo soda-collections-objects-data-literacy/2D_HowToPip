@@ -1042,9 +1042,9 @@ SODa – Sammlungen, Objekte, Datenkompetenzen: https://sammlungen.io/
 
 ---
 
-Version: 0.0.1
+Version: 1.0.0
 
-Datum: 2026-03-17
+Datum: 2026-06-12
 
 Repository: https://github.com/soda-collections-objects-data-literacy/2D_HowToPip
 
